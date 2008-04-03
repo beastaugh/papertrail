@@ -6,7 +6,7 @@
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, "Atom feed") %>
 	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
-	<%= mint_tag('http://mint.extralogical.net/?js') %>
+	<%= headcontent %>
 	
 </head><body><div id="wrapper">
 	

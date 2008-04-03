@@ -9,7 +9,7 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
   
-  def sitetitle()
+  def sitetitle
     unless APP_CONFIG["title"].blank?
       h(APP_CONFIG["title"])
     else
@@ -17,13 +17,11 @@ module ApplicationHelper
     end
   end
   
-  def mint_tag(url)
-    if RAILS_ENV == 'production'
-      content_tag('script', nil, :type => 'text/javascript', :src => url)
-    end
+  def headcontent
+    # No additional header content yet!
   end
   
-  def sitename_tag()
+  def sitename_tag
     unless sitetitle.blank?
       if current_page? root_path
         content_tag :h1, sitetitle, :id => "title"        
@@ -33,7 +31,7 @@ module ApplicationHelper
     end
   end
   
-  def navbar()
+  def navbar
     navlinks = [
       { :id => "all-books", :name => "All books", :path => books_all_path },
       { :id => "book-covers", :name => "Covers", :path => books_covers_path },
@@ -78,3 +76,5 @@ module ApplicationHelper
     link_to h(author.name), author_path(author)
   end
 end
+
+require 'lib/view_extras'
