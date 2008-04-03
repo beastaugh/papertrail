@@ -77,4 +77,8 @@ module ApplicationHelper
   end
 end
 
-require 'lib/view_extras'
+begin
+  require 'lib/view_extras'
+rescue MissingSourceFile
+  #
+end
