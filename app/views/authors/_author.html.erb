@@ -1,0 +1,14 @@
+<div class="author">
+<% unless author.books.blank? %>
+  <h2 class="title"><%= author_page_link(author) %>&#8217;s books</h2>
+  
+  <ul class="booklist">
+  <% for book in author.books %>
+  	<li><%= book_page_link(book) %></li>
+  <% end %>
+  </ul>
+<% else %>
+	<h2 class="title"><%= author_page_link(author) %>?</h2>
+	<p>There aren&#8217;t any books by this author in the database.</p>
+<% end %>
+</div>

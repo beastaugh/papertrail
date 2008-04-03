@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><%= yield(:title) || sitetitle %></title>
+	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
+	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, "Atom feed") %>
+	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
+	<%= mint_tag('http://mint.extralogical.net/?js') %>
+	
+</head><body><div id="wrapper">
+	
+	<div id="header">
+		<%= sitename_tag %>
+		<%= content_tag :p, link_to("Atom feed", formatted_books_url(:atom)), :id => "feed", :class => "feed" %>
+		<%= navbar %>
+	</div>
+	
+	<%- flash.each do |key, msg| -%>
+		<%= content_tag :p, msg, :class => key %>
+	<%- end -%>
+	
+	<div id="content">	
+		<%= yield :layout %>
+	</div>
+	
+	<div id="footer">
+	  <%= blurb %>
+	</div>
+	
+</div></body></html>

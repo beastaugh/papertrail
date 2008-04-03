@@ -1,0 +1,8 @@
+<%- title "Browse covers" -%>
+<h1><%= yield :title %></h1>
+
+<div class="covers">
+  <% for book in @books %>
+	  <%= link_to image_tag("books/" + book.cover_url, :alt => book.title), book_url(book) %>
+  <% end %>
+</div>

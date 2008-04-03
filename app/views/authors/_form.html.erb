@@ -1,0 +1,15 @@
+<% form_for @author do |f| %>
+  <%= error_messages_for "author" %>
+  
+  <div class="section block narrow">
+    <%= f.label "Author name" %>
+    <%= f.text_field :name, :class => "text" %>
+  </div>
+  
+  <div class="section block wide">
+    <%= f.label "Notes" %>
+    <%= f.text_area :note, :class => "text" %>
+  </div>
+  
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,23 @@
+<%- title h(@author.name) -%>
+<div class="author">
+	<h1 class="title"><%= yield :title %></h1>
+	
+<% unless @author.note.blank? -%>
+	<div class="content">
+		<%= sanitize(markdown(@author.note)) %>
+	</div>
+<% end -%>
+
+<% unless @author.books.blank? %>
+  <h2>Books by this author</h2>
+  <ul class="booklist">
+  <% for book in @author.books %>
+  	<li><%= book_page_link(book) %></li>
+  <% end %>
+  </ul>
+<% else %>	
+	<p>There aren&#8217;t any books by this author in the database.</p>
+<% end %>
+
+  <%= edit_link(@author) %>
+</div>

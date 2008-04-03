@@ -1,0 +1,6 @@
+<%- title "Add book" -%>
+<h1><%= yield :title %></h1>
+
+<% content_tag :div, :class => "book-form" do %>
+  <%= render :partial => 'form' %>
+<% end %>
