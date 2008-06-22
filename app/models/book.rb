@@ -5,7 +5,7 @@ class Book < ActiveRecord::Base
   attr_accessor :new_author_name
   before_validation :generate_permalink, :create_author_from_name
   
-  validates_presence_of :title, :author, :comment, :permalink
+  validates_presence_of :title, :author, :permalink
   validates_uniqueness_of :title, :permalink
   validates_format_of :cover_url,
                       :with => %r{\.(gif|jpg|png)$}i,
