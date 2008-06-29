@@ -23,7 +23,7 @@ module ApplicationHelper
   
   def papertrail_javascript
     if admin?
-      minify = "-min" if RAILS_ENV == 'production'
+      minify = ".min" if RAILS_ENV == 'production'
 
       javascript_include_tag(
         "jquery-1.2.6#{minify}.js",
