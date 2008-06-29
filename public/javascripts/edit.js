@@ -14,9 +14,8 @@ $(document).ready(function() {
       
       if (link.is('a')) {
         link.parents('.book').load(link[0].href + ' .book-form');
+        return false;
       }
-      
-      return false;
     }
   });
   
