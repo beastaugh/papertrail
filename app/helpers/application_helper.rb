@@ -21,6 +21,18 @@ module ApplicationHelper
     # No additional header content yet!
   end
   
+  def papertrail_javascript
+    if admin?
+      minify = "-min" if RAILS_ENV == 'production'
+
+      javascript_include_tag(
+        "jquery-1.2.6#{minify}.js",
+        "jquery.delegate.js",
+        "edit.js"
+      )
+    end
+  end
+  
   def sitename_tag
     unless sitetitle.blank?
       tag = current_page?(root_path) ? "h1" : "p"      
