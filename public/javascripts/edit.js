@@ -1,8 +1,8 @@
 /**
- * Ajax editing for books: dynamically loads edit forms into the current
- * context and replaces them with updated content on save.
+ * Ajax editing for books and authors.
  *
- * TODO: refactor the code so it works for authors as well as books.
+ * Edit forms are dynamically loaded into the current page and replaced with
+ * updated content on save.
  */
 $(document).ready(function() {
   /**
@@ -26,12 +26,12 @@ $(document).ready(function() {
    * with nothing at all.
    */
   $('#content').delegate('submit', {
-    'form.edit_book': function(event) {
+    'form.edit_book, form.edit_author': function(event) {
       var form = $(event.target);
       
       $.post(event.target.action, form.serialize(), function(response) {
-        var content = $(response).find('.book');
-        form.parents('.book').replaceWith(content);
+        var content = $(response).find('.book, .author');
+        form.parents('.book, .author').replaceWith(content);
       });
 
       return false;
