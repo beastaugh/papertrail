@@ -13,7 +13,7 @@ $(document).ready(function() {
       var link = $(event.target);
       
       if (link.is('a')) {
-        link.parents('.book').load(link[0].href + ' .book-form');
+        link.parents('.book, .author').load(link[0].href + ' .book-form, .author-form');
         return false;
       }
     }
