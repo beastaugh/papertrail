@@ -22,6 +22,10 @@ $(document).ready(function() {
   /**
    * When an edit form is submitted, replace it with the book details.
    *
+   * TODO: be smarter about the current page context so that markup differences
+   * between index and show pages, for example, are respected when dynamically
+   * loading new content.
+   *
    * TODO: add error handling so that a failed request doesn't replace the form
    * with nothing at all.
    */
