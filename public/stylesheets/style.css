@@ -4,7 +4,7 @@ Paper Trail stylesheet
 
 /* Cleanup
 ------------------------------*/
-body { min-width: 44em; margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 76.5%; line-height: 1.5; color: #ccc; background: #1a1a1a; }
+body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 76.5%; line-height: 1.5; color: #ccc; background: #1a1a1a; }
 .clearer { display: block; width: 100%; clear: both; }
 * { margin: 0; padding: 0; }
 
@@ -16,11 +16,12 @@ img { border: none; color: #bf4f13; }
 
 /* Structure
 ------------------------------*/
-#wrapper { width: 40em; margin: 0 auto; }
+#wrapper { max-width: 44em; margin: 0 auto; }
+	#wrapper > * {margin:0 2em;}
 	#header {}
 		#nav { clear: both; margin: 0 0 1.5em 0; }
 	#content { overflow: auto; }
-	#footer { clear: both; padding: 1em 0; margin: 0 0 2em 0; }
+	#footer { clear: both; padding: 1em 0; margin-bottom: 2em; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -102,13 +103,9 @@ label, select.block, textarea, input.text { display: block; width: 98%;}
 /* Header
 ------------------------------*/
 #header { background: url('/images/header.gif') no-repeat 0 -130px; }
-	#title { display: block; float: left; height: 130px; width: 219px; }
-		h1#title, #title a, #feed a { display: block; text-indent: -9999em; text-decoration: none; }
-		#title a { height: 100%; }
-			#title a:hover { background: url('/images/header.gif') no-repeat 0 0; }
-	#feed { float: right; width: 72px; padding: 104px 0 0 0; }
-		#feed a { height: 26px; background: url('/images/feed.gif') no-repeat 0 0; }
-		#feed a:hover { background: url('/images/feed.gif') no-repeat -72px 0; }
+	#title { margin: 0 0 10px 0; }
+		#title, #title a { display: block; height: 130px; text-indent: -9999em; text-decoration: none; }
+		#title a:hover { background: url('/images/header.gif') no-repeat 0 0; }
 
 /* Nav
 ------------------------------*/
