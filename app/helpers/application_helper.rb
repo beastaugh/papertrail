@@ -23,11 +23,8 @@ module ApplicationHelper
   
   def sitename_tag
     unless sitetitle.blank?
-      if current_page? root_path
-        content_tag :h1, sitetitle, :id => "title"        
-      else                                                
-        content_tag :p, link_to(sitetitle, root_path, :rel => "home"), :id => "title"
-      end
+      tag = current_page?(root_path) ? "h1" : "p"      
+      content_tag tag, link_to(sitetitle, root_path, :rel => "home"), :id => "title"
     end
   end
   
