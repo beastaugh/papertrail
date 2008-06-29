@@ -22,9 +22,10 @@ $(document).ready(function() {
   /**
    * When an edit form is submitted, replace it with the book details.
    *
-   * TODO: be smarter about the current page context so that markup differences
-   * between index and show pages, for example, are respected when dynamically
-   * loading new content.
+   * A cross-browser fix is included: some browsers prepend the protocol and
+   * domain to form actions, some don't. This is relevant because sometimes a
+   * response needs filtering depending on whether the origin of the request
+   * is the same as the target.
    *
    * TODO: add error handling so that a failed request doesn't replace the form
    * with nothing at all.
@@ -32,9 +33,22 @@ $(document).ready(function() {
   $('#content').delegate('submit', {
     'form.edit_book, form.edit_author': function(event) {
       var form = $(event.target);
+      var action = event.target.action;
       
-      $.post(event.target.action, form.serialize(), function(response) {
-        var content = $(response).find('.book, .author');
+      $.post(action, form.serialize(), function(response) {
+        var action_path, content = $(response).find('.book, .author');
+        
+        if (/^https?:\/\//.test(action)) {
+          action_path = action;
+        } else {
+          action_path = document.location.protocol + '//' + document.location.host + action;
+        }
+        
+        if (action_path != document.URL) {
+          var title = content.find('.title');
+          title.replaceWith('<h2 class="title"><a href="' + action + '">' + title.text() + '</a></h2>');
+        }
+        
         form.parents('.book, .author').replaceWith(content);
       });
 
