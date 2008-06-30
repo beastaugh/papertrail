@@ -32,14 +32,19 @@ class AuthorsController < ApplicationController
 
   def edit
     @author = Author.find_by_permalink(params[:id])
+    render :layout => false if request.xhr?
   end
 
   def update
     @author = Author.find_by_permalink(params[:id])
     
     if @author.update_attributes(params[:author])
-      flash[:notice] = "Author info updated."
-      redirect_to author_path(@author)
+      if request.xhr?
+        render :action => "show", :layout => false
+      else
+        flash[:notice] = "Author info updated."
+        redirect_to author_path(@author)
+      end
     else
       render :action => "edit"
     end

@@ -43,14 +43,20 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find_by_permalink(params[:id])
+    render :layout => false if request.xhr?
   end
 
   def update
     @book = Book.find_by_permalink(params[:id])
     
     if @book.update_attributes(params[:book])
-      flash[:notice] = "Book updated."
-      redirect_to book_path(@book)
+      if request.xhr?
+        @books = @book
+        render :template => "books/index", :layout => false
+      else
+        flash[:notice] = "Book updated."
+        redirect_to book_path(@book)
+      end
     else
       render :action => "edit"
     end

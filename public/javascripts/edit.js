@@ -13,7 +13,7 @@ $(document).ready(function() {
       var link = $(event.target);
       
       if (link.is('a')) {
-        link.parents('.book, .author').load(link[0].href + ' .book-form, .author-form');
+        link.parents('.book, .author').load(link[0].href);
         return false;
       }
     }
@@ -33,23 +33,9 @@ $(document).ready(function() {
   $('#content').delegate('submit', {
     'form.edit_book, form.edit_author': function(event) {
       var form = $(event.target);
-      var action = event.target.action;
       
-      $.post(action, form.serialize(), function(response) {
-        var action_path, content = $(response).find('.book, .author');
-        
-        if (/^https?:\/\//.test(action)) {
-          action_path = action;
-        } else {
-          action_path = document.location.protocol + '//' + document.location.host + action;
-        }
-        
-        if (action_path != document.URL) {
-          var title = content.find('.title');
-          title.replaceWith('<h2 class="title"><a href="' + action + '">' + title.text() + '</a></h2>');
-        }
-        
-        form.parents('.book, .author').replaceWith(content);
+      $.post(event.target.action, form.serialize(), function(response) {
+        form.parents('.book, .author').replaceWith(response);
       });
 
       return false;
