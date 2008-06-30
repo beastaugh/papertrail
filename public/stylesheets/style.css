@@ -17,7 +17,7 @@ img { border: none; color: #bf4f13; }
 /* Structure
 ------------------------------*/
 #wrapper { max-width: 44em; margin: 0 auto; }
-	#wrapper > * {margin:0 2em;}
+	#wrapper > * {margin-left:2em; margin-right:2em;}
 	#header {}
 		#nav { clear: both; margin: 0 0 1.5em 0; }
 	#content { overflow: auto; }
