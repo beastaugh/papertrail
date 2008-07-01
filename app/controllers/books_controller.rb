@@ -51,8 +51,12 @@ class BooksController < ApplicationController
     
     if @book.update_attributes(params[:book])
       if request.xhr?
-        @books = @book
-        render :template => "books/index", :layout => false
+        if request.referer != request.url
+          @books = @book
+          render :template => "books/index", :layout => false
+        else
+          render :action => "show", :layout => false
+        end
       else
         flash[:notice] = "Book updated."
         redirect_to book_path(@book)

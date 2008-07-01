@@ -40,7 +40,12 @@ class AuthorsController < ApplicationController
     
     if @author.update_attributes(params[:author])
       if request.xhr?
-        render :action => "show", :layout => false
+        if request.referer != request.url
+          @authors = @author
+          render :template => "authors/index", :layout => false
+        else
+          render :action => "show", :layout => false
+        end
       else
         flash[:notice] = "Author info updated."
         redirect_to author_path(@author)
