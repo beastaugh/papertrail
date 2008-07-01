@@ -9,8 +9,7 @@ class BooksController < ApplicationController
   # cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
   def index
-    @books = Book.list_books :limit => 5, :order => "created_at DESC"
-    
+    @books = Book.list_books :limit => 5, :order => "created_at DESC"    
     respond_to_defaults(@books, :except => [ :id, :author_id ])
   end
   
@@ -32,13 +31,10 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params[:book])
-  
-    if @book.save
-      flash[:notice] = "Book successfully created."
-      redirect_to book_path(@book)
-    else
-      render :action => "new"
-    end
+    render :action => "new" and return unless @book.save
+    
+    flash[:notice] = "Book successfully created."
+    redirect_to book_path(@book)
   end
 
   def edit
@@ -48,21 +44,13 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find_by_permalink(params[:id])
+    render :action => "edit" and return unless @book.update_attributes(params[:book])
     
-    if @book.update_attributes(params[:book])
-      if request.xhr?
-        if request.referer != request.url
-          @books = @book
-          render :template => "books/index", :layout => false
-        else
-          render :action => "show", :layout => false
-        end
-      else
-        flash[:notice] = "Book updated."
-        redirect_to book_path(@book)
-      end
+    if request.xhr?
+      render :partial => "books/book", :locals => {:book => @book} and return unless request.referer == request.url
+      render :action => "show", :layout => false and return
     else
-      render :action => "edit"
+      flash[:notice] = "Book updated." and redirect_to book_path(@book)
     end
   end
 

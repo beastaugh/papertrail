@@ -6,8 +6,7 @@ class AuthorsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
           
   def index
-    @authors = Author.list_authors
-  
+    @authors = Author.list_authors  
     respond_to_defaults(@authors, :except => [:id])
   end
   
@@ -20,14 +19,11 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.new(params[:author])
-    
-    if @author.save
-      flash[:notice] = "Author successfully added."
-      redirect_to author_path(@author)
-    else
-      render :action => "new"
-    end
+    @author = Author.new(params[:author])    
+    render :action => "new" and return unless @author.save
+
+    flash[:notice] = "Author successfully added."
+    redirect_to author_path(@author)
   end
 
   def edit
@@ -37,21 +33,13 @@ class AuthorsController < ApplicationController
 
   def update
     @author = Author.find_by_permalink(params[:id])
+    render :action => "edit" and return unless @author.update_attributes(params[:author])
     
-    if @author.update_attributes(params[:author])
-      if request.xhr?
-        if request.referer != request.url
-          @authors = @author
-          render :template => "authors/index", :layout => false
-        else
-          render :action => "show", :layout => false
-        end
-      else
-        flash[:notice] = "Author info updated."
-        redirect_to author_path(@author)
-      end
+    if request.xhr?
+      render :partial => "authors/author", :locals => {:author => @author} and return unless request.referer == request.url
+      render :action => "show", :layout => false and return
     else
-      render :action => "edit"
+      flash[:notice] = "Author info updated." and redirect_to author_path(@author)
     end
   end
 
