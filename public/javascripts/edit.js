@@ -13,7 +13,14 @@ $(document).ready(function() {
       var link = $(event.target);
       
       if (link.is('a')) {
-        link.parents('.book, .author').load(link[0].href);
+        $.get(link[0].href, {}, function(response) {
+          var data = response;
+          
+          link.parents('.book, .author').hide('normal', function() {
+            $(this).html(data);
+          }).show('normal');
+        });
+        
         return false;
       }
     }
@@ -35,7 +42,11 @@ $(document).ready(function() {
       var form = $(event.target);
       
       $.post(event.target.action, form.serialize(), function(response) {
-        form.parents('.book, .author').replaceWith(response);
+        var data = response;
+        
+        form.parents('.book, .author').hide('normal', function() {
+          $(this).html(data).removeClass('book author');
+        }).show('normal');
       });
 
       return false;
