@@ -42,12 +42,11 @@ $(document).ready(function() {
       var form = $(event.target);
       
       $.post(event.target.action, form.serialize(), function(response) {
-        var data = response;
+        var new_content = $(response).hide();
         
         form.parents('.book, .author').hide('normal', function() {
-          data = $(data).hide();
-          $(this).replaceWith(data);
-          data.show('normal');
+          $(this).replaceWith(new_content);
+          new_content.show('normal');
         });
       });
 
