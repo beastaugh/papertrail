@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   # cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
   def index
-    @books = Book.list_books :limit => 5, :order => "created_at DESC"    
+    @books = Book.list_books :limit => 10, :order => "created_at DESC"
     respond_to_defaults(@books, :except => [ :id, :author_id ])
   end
   
