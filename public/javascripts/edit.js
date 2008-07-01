@@ -45,8 +45,10 @@ $(document).ready(function() {
         var data = response;
         
         form.parents('.book, .author').hide('normal', function() {
-          $(this).html(data).removeClass('book author');
-        }).show('normal');
+          data = $(data).hide();
+          $(this).replaceWith(data);
+          data.show('normal');
+        });
       });
 
       return false;
