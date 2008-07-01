@@ -29,11 +29,6 @@ $(document).ready(function() {
   /**
    * When an edit form is submitted, replace it with the book details.
    *
-   * A cross-browser fix is included: some browsers prepend the protocol and
-   * domain to form actions, some don't. This is relevant because sometimes a
-   * response needs filtering depending on whether the origin of the request
-   * is the same as the target.
-   *
    * TODO: add error handling so that a failed request doesn't replace the form
    * with nothing at all.
    */
