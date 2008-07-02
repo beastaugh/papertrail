@@ -28,9 +28,6 @@ $(document).ready(function() {
   
   /**
    * When an edit form is submitted, replace it with the book details.
-   *
-   * TODO: add error handling so that a failed request doesn't replace the form
-   * with nothing at all.
    */
   $('#content').delegate('submit', {
     'form.edit_book, form.edit_author': function(event) {

@@ -84,12 +84,12 @@ label, select.block, textarea, input.text { display: block; width: 98%;}
 .wide label, .wide select.block, .wide textarea, .wide input.text { display: block; width: 100%;}
 #submit, #delete { margin: 1em 0; }
 
-.login-form, .book-form, .author-form { margin: 0 0 1em 0; overflow: auto; }
+.login-form, .edit_book, .edit_author { margin: 0 0 1em 0; overflow: auto; }
 
 	.login-form label { margin: 0 1em 0 0; color: #404040; }
 	.login-form input { width: 48%; }
 
-	.book-form .section, .author-form .section { margin: 0 0 1em 0; }
+	.edit_book .section, .edit_author .section { margin: 0 0 1em 0; }
 	select.datetime { display: inline; }
 
 /* Form errors

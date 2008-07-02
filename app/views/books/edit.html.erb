@@ -1,7 +1,7 @@
-<% title "Edit book" %>
+<%- title "Edit book" -%>
 
-<h1><%= yield :title %></h1>
+<% content_tag :div, :class => "book" do %>
+	<h1><%= yield :title %></h1>
 
-<% content_tag :div, :class => "book-form" do %>
-  <%= render :partial => 'form' %>
+  <%= render :partial => "form" %>
 <% end %>
