@@ -3,7 +3,7 @@ require 'urlify'
 class Book < ActiveRecord::Base
   belongs_to :author
   attr_accessor :new_author_name
-  before_validation :generate_permalink, :create_author_from_name
+  before_validation :generate_permalink, :create_author_from_name, :clean_isbn
   
   validates_presence_of :title, :author, :permalink
   validates_uniqueness_of :title, :permalink
@@ -13,6 +13,9 @@ class Book < ActiveRecord::Base
                       :message => "must be a URL for a GIF, JPEG or PNG image."
   validates_format_of :permalink,
                       :with => %r{\A[a-z\d][a-z\d\_\-]*[a-z\d]\z}
+  validates_format_of :isbn,
+                      :with => /^(\d{13}|\d{10})$/,
+                      :message => "must be a valid ISBN with 10 or 13 digits."
   
   # Lists all books in the database.
   def self.list_books(options = {})
@@ -26,6 +29,10 @@ class Book < ActiveRecord::Base
     unless new_author_name.blank?
       create_author(:name => new_author_name)
     end
+  end
+  
+  def clean_isbn
+    self.isbn = self.isbn.gsub(/\D/, "")
   end
   
   # Enables pretty permalinks.
