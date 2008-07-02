@@ -14,7 +14,7 @@ class Book < ActiveRecord::Base
   validates_format_of :permalink,
                       :with => %r{\A[a-z\d][a-z\d\_\-]*[a-z\d]\z}
   validates_format_of :isbn,
-                      :with => /^(\d{13}|\d{10})$/,
+                      :with => /^(\d{13}|\d{10})?$/,
                       :message => "must be a valid ISBN with 10 or 13 digits."
   
   # Lists all books in the database.
