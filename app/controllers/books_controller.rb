@@ -44,7 +44,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find_by_permalink(params[:id])
-    render :action => "edit" and return unless @book.update_attributes(params[:book])
+    render :action => "edit", :layout => !request.xhr? and return unless @book.update_attributes(params[:book])
     
     if request.xhr?
       render :partial => "books/book", :locals => {:book => @book} and return unless request.referer == request.url
