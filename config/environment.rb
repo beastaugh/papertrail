@@ -7,7 +7,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'London'
   
   # Require the latest Rubypants gem
-  config.gem "rubypants"
+  config.gem 'rubypants'
   
   config.action_controller.session = {
     :session_key => "_papertrail_session",
