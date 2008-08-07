@@ -1,5 +1,3 @@
-require 'rubypants'
-
 module ApplicationHelper
   def smartypants(text)
     text.blank? ? "" : RubyPants.new(text).to_html
