@@ -5,6 +5,15 @@ Paper Trail
 Paper Trail is a single-user publishing tool for book reviews. It's written in [Ruby on Rails](http://rubyonrails.org/); content should be formatted using [Markdown](http://daringfireball.net/projects/markdown/). Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and licensed under the GPL.
 
 
+Dependencies
+------------
+
+As well as the usual Rails dependencies, Paper Trail requires the following Gems:
+
+* [BlueCloth](http://deveiate.org/projects/BlueCloth) is a Ruby implementation of Markdown.
+* [RubyPants](http://chneukirchen.org/blog/static/projects/rubypants.html) is a Ruby port of [SmartyPants](http://daringfireball.net/projects/smartypants/).
+
+
 Configuration
 -------------
 
