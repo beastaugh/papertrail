@@ -2,9 +2,7 @@ Paper Trail
 ===========
 
 
-Paper Trail is a single-user publishing tool for book reviews. It's written in [Ruby on Rails](http://rubyonrails.org/); content should be formatted using [Markdown](http://daringfireball.net/projects/markdown/).
-
-Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and licensed under the GPL.
+Paper Trail is a single-user publishing tool for book reviews. It's written in [Ruby on Rails](http://rubyonrails.org/); content should be formatted using [Markdown](http://daringfireball.net/projects/markdown/). Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and licensed under the GPL.
 
 
 Configuration
