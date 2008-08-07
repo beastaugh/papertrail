@@ -4,13 +4,13 @@ Paper Trail
 
 Paper Trail is a single-user publishing tool for book reviews. It's written in [Ruby on Rails](http://rubyonrails.org/); content should be formatted using [Markdown](http://daringfireball.net/projects/markdown/).
 
-Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and is licensed under the GPL.
+Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and licensed under the GPL.
 
 
 Configuration
 -------------
 
-Like all Rails applications, Paper Trail needs a database.yml file with the relevant configuration details to be added to the config/ directory. In addition to this, an environment-specific configuration file named papertrail.yml can be added to the config/ directory to add some simple customisations to the application. Here's a sample configuration block for a development environment.
+Like all Rails applications, Paper Trail needs a [database.yml](http://wiki.rubyonrails.org/rails/pages/database.yml) file with the relevant configuration details to be added to the config/ directory. In addition to this, an environment-specific configuration file named papertrail.yml can be added to the config/ directory to add some simple customisations to the application. Here's a sample configuration block for a development environment.
 
     development:
       title: Books on Extralogical
