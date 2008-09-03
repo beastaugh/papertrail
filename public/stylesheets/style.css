@@ -103,10 +103,10 @@ label, select.block, textarea, input.text { display: block; width: 98%;}
 
 /* Header
 ------------------------------*/
-#header { background: url('/images/header.gif') no-repeat 0 -130px; }
+#header { background: url('/images/header-background.png') repeat-x 34px 0; }
 	#title { margin: 0 0 10px 0; }
-		#title, #title a { display: block; height: 130px; text-indent: -9999em; text-decoration: none; }
-		#title a:hover { background: url('/images/header.gif') no-repeat 0 0; }
+		#title, #title a { display: block; height: 130px; text-indent: -9999em; text-decoration: none; background: url('/images/header.png') no-repeat 0 -130px; }
+		#title a:hover { background-position: 0 0; }
 
 /* Nav
 ------------------------------*/
