@@ -31,4 +31,6 @@ Like all Rails applications, Paper Trail needs a [database.yml](http://wiki.ruby
 Licence
 -------
 
-Paper Trail is free software, released under the GNU General Public License Version 2. Please refer to the LICENSE file that should have been distributed with this software for details.
+Paper Trail is free software, released under the GNU General Public License Version 2. Please refer to the LICENSE file that should have been distributed with this software for details. If you have not received a copy of the license, you can get a copy from the Free Software Foundation.
+
+* [GNU General Public License Version 2](http://www.fsf.org/licensing/licenses/info/GPLv2.html)
