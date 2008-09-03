@@ -64,7 +64,7 @@ a:hover { color: #d93600; text-decoration: underline; }
 .book a img { border: 1px solid #333; }
 .book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
 
-.edit { width: 26px; height: 26px; position: absolute; top: 0; right: 0; }
+.edit { width: 26px; height: 26px; float: right; }
 	.edit a { display:block; height:30px; text-indent:-9999em; text-decoration: none; }
 	.edit a:link, .edit a:visited, .edit a:active { background: url('/images/edit.gif') no-repeat 0 0; }
 	.edit a:hover { background: url('/images/edit.gif') no-repeat -26px 0; }
