@@ -76,11 +76,11 @@ module ApplicationHelper
   end
   
   def book_page_link(book, link_options = {})
-    link_to( link_options[:link_name] || h(book.title), book_path(book) )
+    link_to( link_options[:link_name] || sanitize(smartypants(book.title)), book_path(book) )
   end
   
   def author_page_link(author)
-    link_to h(author.name), author_path(author)
+    link_to sanitize(smartypants(author.name)), author_path(author)
   end
 end
 

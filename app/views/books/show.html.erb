@@ -1,4 +1,4 @@
-<%- title h(@book.title) -%>
+<%- title sanitize(smartypants(@book.title)) -%>
 <div class="book">
 	<h1 class="title"><%= yield :title %></h1>
 	<p class="about">By <%= author_page_link(@book.author) %>, finished <%= h(nice_date(@book.created_at)) %></p>

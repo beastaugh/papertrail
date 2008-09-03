@@ -1,4 +1,4 @@
-<%- title h(@author.name) -%>
+<%- title sanitize(smartypants(@author.name)) -%>
 <div class="author">
 	<h1 class="title"><%= yield :title %></h1>
 	
