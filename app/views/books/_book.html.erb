@@ -1,9 +1,7 @@
 <div class="book">
-	<%= edit_link(book) %>
-
 	<h2 class="title"><%= book_page_link(book) %></h2>
 	
-	<p class="about">By <%= author_page_link(book.author) %>, finished <%= h(nice_date(book.created_at)) %></p>
+	<p class="about">By <%= author_page_link(book.author) %>, finished <%= h(nice_date(book.created_at)) %> <%= edit_link(book) %></p>
 	
 	<div class="content">
 		<%= sanitize(smartypants(markdown(book.comment))) %>

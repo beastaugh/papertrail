@@ -64,10 +64,9 @@ a:hover { color: #d93600; text-decoration: underline; }
 .book a img { border: 1px solid #333; }
 .book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
 
-.edit { width: 26px; height: 26px; float: right; }
-	.edit a { display:block; height:30px; text-indent:-9999em; text-decoration: none; }
-	.edit a:link, .edit a:visited, .edit a:active { background: url('/images/edit.gif') no-repeat 0 0; }
-	.edit a:hover { background: url('/images/edit.gif') no-repeat -26px 0; }
+.edit { display: block; float: right; border-width: 2px; border-style: solid; padding: 0 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-transform: uppercase; font-size: 0.8em; }
+.edit:link, .edit:visited, .edit:active { color: #303b40; border-color: #293033; }
+.edit:hover { color: #fff; border-color: #fff; text-decoration: none; }
 
 /* Notices
 ------------------------------*/
