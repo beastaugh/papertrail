@@ -2,7 +2,7 @@ module BooksHelper
   def edit_link(book, link_options = {})
     if admin?
       link_to(link_options[:link_name] || "Edit",
-        {:action => "edit", :id => book.permalink },
+        {:action => "edit", :id => book.permalink},
         {:class => "edit"})
 		end
 	end

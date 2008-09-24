@@ -5,7 +5,7 @@ Paper Trail stylesheet
 /* Cleanup
 ------------------------------*/
 body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 81%; line-height: 1.5; color: #ccc; background: #1a1a1a; }
-.clearer { display: block; width: 100%; clear: both; }
+.clear:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 * { margin: 0; padding: 0; }
 
 /* Elements
@@ -18,11 +18,11 @@ img { border: none; color: #bf4f13; }
 /* Structure
 ------------------------------*/
 #wrapper { max-width: 44em; margin: 0 auto; }
-	#wrapper > * {margin-left:2em; margin-right:2em;}
+	#wrapper > * { margin-left: 2em; margin-right: 2em; }
 	#header {}
-		#nav { clear: both; margin: 0 0 1.5em 0; }
-	#content { overflow: auto; }
-	#footer { clear: both; padding: 1em 0; margin-bottom: 2em; }
+		#nav { margin: 0 0 1.5em 0; }
+	#content {}
+	#footer { padding: 1em 0; margin-bottom: 2em; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -46,14 +46,14 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Entries
 ------------------------------*/
-.book { overflow: auto; position:relative; margin: 0 0 1em 0; }
+.book { margin-bottom: 1em; }
 	.book h1, .book h2.title { margin: 0; }
 	.book .about { margin: 0 0 0.8em 0; color: #666; }
 	.book .content {}
 		.book img { border: 1px solid #b3b3b3; }
 	.book .date { font-style: italic; }
 	
-.author { overflow: auto; position:relative; margin-bottom: 1em; }
+.author { margin-bottom: 1em; }
 	.author h1, .author h2.title { margin: 0; }
 	.author .content { margin-bottom: 2em; }
 	.author ul.booklist { margin: 0.5em 0; list-style: none; }
@@ -64,7 +64,7 @@ a:hover { color: #d93600; text-decoration: underline; }
 .book a img { border: 1px solid #333; }
 .book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
 
-.edit { display: block; float: right; border-width: 2px; border-style: solid; padding: 0 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-transform: uppercase; font-size: 0.8em; }
+.edit { display: block; float: right; border-width: 0.2em; border-style: solid; padding: 0 0.3em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; text-transform: uppercase; font-size: 0.8em; }
 .edit:link, .edit:visited, .edit:active { color: #303b40; border-color: #293033; }
 .edit:hover { color: #fff; border-color: #fff; text-decoration: none; }
 
@@ -84,7 +84,7 @@ label, select.block, textarea, input.text { display: block; width: 98%;}
 .wide label, .wide select.block, .wide textarea, .wide input.text { display: block; width: 100%;}
 #submit, #delete { margin: 1em 0; }
 
-.login-form, .edit_book, .edit_author { margin: 0 0 1em 0; overflow: auto; }
+.login-form, .edit_book, .edit_author { margin-bottom: 1em; }
 
 	.login-form label { margin: 0 1em 0 0; color: #404040; }
 	.login-form input { width: 48%; }
