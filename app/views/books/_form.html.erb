@@ -1,7 +1,7 @@
 <% form_for @book do |f| %>
 	<%= error_messages_for "book", :id => "book_form_errors", :class => "errors", :message => nil %>
 
-	<div class="section block wide">
+	<div class="section block wide large">
 		<%= f.label :title %>
 		<%= f.text_field :title, :class => "text" %>
 	</div>

@@ -71,19 +71,22 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Forms
 ------------------------------*/
-label { margin: 0 0 0.2em 0; }
+label { margin: 0 0 0.2em 0; display:block; }
 input, textarea { outline: none; }
 .text { border: 1px solid #333; padding: 1px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
 .text:focus { border: 1px solid #d93600; color: #fff; background: #000; }
-label, select.block, textarea, input.text { display: block; width: 98%;}
-.wide label, .wide select.block, .wide textarea, .wide input.text { display: block; width: 100%;}
+label, select.block, textarea, input.text { width: 98%;}
+.wide label, .wide select.block, .wide textarea, .wide input.text { width: 100%;}
+.large .text {font-size:1.5em;}
 #submit, #delete { margin: 1em 0; }
 
 .login-form, .edit_book, .edit_author { margin-bottom: 1em; }
 
 	.login-form label { margin: 0 1em 0 0; color: #404040; }
 	.login-form input { width: 48%; }
-
+	
+	.edit_book, .edit_author { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
+	
 	.edit_book .section, .edit_author .section { margin: 0 0 1em 0; }
 	select.datetime { display: inline; }
 
