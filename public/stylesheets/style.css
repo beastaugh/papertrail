@@ -46,23 +46,18 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Entries
 ------------------------------*/
-.book { margin-bottom: 1em; }
-	.book h1, .book h2.title { margin: 0; }
+.book h1, .book h2.title, .author h1, .author h2.title { margin: 0; }
+.book, .author .content { margin-bottom: 1.5em; }
+
 	.book .about { margin: 0 0 0.8em 0; color: #666; }
-	.book .content {}
-		.book img { border: 1px solid #b3b3b3; }
-	.book .date { font-style: italic; }
+	.book img { border: 1px solid #b3b3b3; }
+	.book a img { border: 1px solid #333; }
+	.book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
 	
-.author { margin-bottom: 1em; }
-	.author h1, .author h2.title { margin: 0; }
-	.author .content { margin-bottom: 2em; }
-	.author ul.booklist { margin: 0.5em 0; list-style: none; }
+	ul.booklist { margin: 0.5em 0 1em 0; list-style: none; }
 		ul.booklist li { margin: 0 0 0.3em 0; background: url('/images/dot.gif') repeat-x 0 0; padding: 0.5em 0 0 2em; font-size: 1.17em; }
-		
-	.covers a img { margin: 0 1em 1em 0; border: 1px solid #333; padding:9px; background: #202426; }
 	
-.book a img { border: 1px solid #333; }
-.book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
+	.covers a img { margin: 0 1em 1em 0; border: 1px solid #333; padding:9px; background: #202426; }
 
 .edit { display: block; float: right; border-width: 0.2em; border-style: solid; padding: 0 0.3em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; text-transform: uppercase; font-size: 0.8em; }
 .edit:link, .edit:visited, .edit:active { color: #303b40; border-color: #293033; }
