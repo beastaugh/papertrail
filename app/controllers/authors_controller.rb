@@ -4,10 +4,14 @@ class AuthorsController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
-          
+    
   def index
-    @authors = Author.list_authors  
-    respond_to_defaults(@authors, :except => [:id])
+    if true
+      @authors = Author.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    else
+      @authors = Author.list_authors
+    end
+#    respond_to_defaults(@authors, :except => [:id])
   end
   
   def show

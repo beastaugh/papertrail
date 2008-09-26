@@ -4,7 +4,9 @@
  * Edit forms are dynamically loaded into the current page and replaced with
  * updated content on save.
  */
-$(document).ready(function() {
+jQuery.noConflict();
+jQuery(document).ready(function() {
+  var $ = jQuery;
   var edit_links = $('#content .edit');
   
   /**

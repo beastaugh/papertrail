@@ -2,8 +2,7 @@ require 'urlify'
 
 class Book < ActiveRecord::Base
   belongs_to :author
-  attr_accessor :new_author_name
-  before_validation :generate_permalink, :create_author_from_name, :clean_isbn
+  before_validation :generate_permalink, :clean_isbn
   
   validates_presence_of :title, :author, :permalink
   validates_uniqueness_of :title, :permalink
@@ -24,13 +23,14 @@ class Book < ActiveRecord::Base
     end
   end
   
-  # Creates an author with the supplied name.
-  def create_author_from_name
-    unless new_author_name.blank?
-      create_author(:name => new_author_name)
-    end
+  def author_name
+    author.name if author
   end
   
+  def author_name=(name)
+    self.author = Author.find_or_create_by_name(name) unless name.blank?
+  end
+    
   def clean_isbn
     self.isbn = self.isbn.gsub(/\D/, "")
   end

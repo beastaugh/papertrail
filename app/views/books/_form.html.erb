@@ -5,17 +5,12 @@
 		<%= f.label :title %>
 		<%= f.text_field :title, :class => "text" %>
 	</div>
-
-	<div class="section primary narrow">
-		<%= f.label :author_id, "Author name" %>
-		<%= f.select( :author_id, Author.find(:all).collect {|p| [ p.name, p.id ] }, {}, { :class => "wide"} ) %>
+	
+	<div class="section block wide">
+		<%= f.label :author_name, "Author name" %>
+		<%= text_field_with_auto_complete :book, :author_name, {:class => "autocomplete text"}, {:url => formatted_authors_path(:js), :method => 'get', :with => "'search=' + element.value"} %>
 	</div>
-
-	<div class="section secondary narrow">
-		<%= f.label :new_author_name, "Or add a new author" %>
-		<%= f.text_field :new_author_name, :class => "text" %>
-	</div>
-
+	
 	<div class="section block wide">
 		<%= f.label :comment %>
 		<%= f.text_area :comment, :rows => 8, :class => "text" %>
@@ -34,4 +29,4 @@
 	<%= f.submit %>
 <% end %>
 
-<%= button_to 'Delete book', {:action => 'destroy'}, :method => 'delete' %>
+<% #button_to 'Delete book', {:action => 'destroy'}, :method => 'delete' %>

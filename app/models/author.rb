@@ -7,7 +7,7 @@ class Author < ActiveRecord::Base
   validates_uniqueness_of :name, :permalink
   validates_format_of :permalink,
                       :with => %r{\A[a-z\d][a-z\d\_\-]*[a-z\d]\z}
-
+    
   # Lists all authors in the database.
   def self.list_authors
     find(:all, :order => "name ASC")
