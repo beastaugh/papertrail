@@ -3,5 +3,6 @@
 <% content_tag :div, :class => "book" do %>
 	<h1><%= yield :title %></h1>
 
-  <%= render :partial => "form" %>
+	<%= render :partial => "form" %>
+	<%= button_to 'Delete book', {:action => 'destroy'}, :method => 'delete' %>
 <% end %>
