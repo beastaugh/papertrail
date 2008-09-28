@@ -80,14 +80,14 @@ label, select.block, textarea, input.text { width: 98%;}
 .large .text {font-size:1.5em;}
 #submit, #delete { margin: 1em 0; }
 
-.login-form, .edit_book, .edit_author { margin-bottom: 1em; }
+.login-form, .book-form, .author-form { margin-bottom: 1em; }
 
 	.login-form label { margin: 0 1em 0 0; color: #404040; }
 	.login-form input { width: 48%; }
 	
-	.edit_book, .edit_author { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
+	.book-form, .author-form { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
 	
-	.edit_book .section, .edit_author .section { margin: 0 0 1em 0; }
+	.book-form .section, .author-form .section { margin: 0 0 1em 0; }
 	select.datetime { display: inline; }
 
 /* Form errors

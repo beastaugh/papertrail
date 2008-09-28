@@ -1,7 +1,6 @@
 <%- title "Edit author" -%>
+<h1><%= yield :title %></h1>
 
-<% content_tag :div, :class => "author" do %>
-	<h1><%= yield :title %></h1>
-
+<% content_tag :div, :class => "author-form" do %>
   <%= render :partial => "form" %>
 <% end %>
