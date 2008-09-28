@@ -1,6 +1,7 @@
 require 'urlify'
 
 class Author < ActiveRecord::Base
+  attr_accessible :name, :note
   has_many :books
   before_validation :generate_permalink
   validates_presence_of :name, :permalink

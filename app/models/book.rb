@@ -1,6 +1,7 @@
 require 'urlify'
 
 class Book < ActiveRecord::Base
+  attr_accessible :title, :comment, :cover_url, :isbn, :author_name
   belongs_to :author
   before_validation :generate_permalink, :clean_isbn
   
