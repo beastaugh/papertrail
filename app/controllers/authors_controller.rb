@@ -6,12 +6,14 @@ class AuthorsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
     
   def index
-    if true
-      @authors = Author.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
-    else
+    respond_to do |f|
+      f.js { @authors = Author.find(:all,
+        :conditions => ['name LIKE ?', "%#{params[:search]}%"]) }
+      
       @authors = Author.list_authors
+      f.html
+      f.xml { render :xml => @authors.to_xml(:except => [:id]) }
     end
-#    respond_to_defaults(@authors, :except => [:id])
   end
   
   def show
