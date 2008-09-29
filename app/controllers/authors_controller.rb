@@ -4,10 +4,16 @@ class AuthorsController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
-          
+    
   def index
-    @authors = Author.list_authors  
-    respond_to_defaults(@authors, :except => [:id])
+    respond_to do |f|
+      f.js { @authors = Author.find(:all,
+        :conditions => ['name LIKE ?', "%#{params[:search]}%"]) }
+      
+      @authors = Author.list_authors
+      f.html
+      f.xml { render :xml => @authors.to_xml(:except => [:id]) }
+    end
   end
   
   def show
@@ -44,9 +50,14 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    Author.find(params[:id]).destroy
-    flash[:notice] = "Author deleted."
-    redirect_to authors_path
+    @author = Author.find_by_permalink(params[:id])
+    
+    if @author.books.blank?
+      @author.destroy
+      flash[:notice] = "Author deleted." and redirect_to authors_path
+    else
+      flash[:alert] = "Only authors with no books may be deleted." and redirect_to author_path(@author)
+    end
   end
   
   protected

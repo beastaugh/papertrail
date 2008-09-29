@@ -1,7 +1,7 @@
 <%- title "Edit author" -%>
+<h1><%= yield :title %></h1>
 
-<% content_tag :div, :class => "author" do %>
-	<h1><%= yield :title %></h1>
-
-  <%= render :partial => "form" %>
+<% content_tag :div, :class => "author-form clear" do %>
+	<%= render :partial => "form" %>
+	<%= button_to "Delete", {:action => "destroy"}, {:method => "delete", :class => "delete button"} if @author.books.blank? %>
 <% end %>

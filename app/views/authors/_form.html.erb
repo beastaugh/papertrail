@@ -1,7 +1,7 @@
 <% form_for @author do |f| %>
   <%= error_messages_for "author" %>
   
-  <div class="section block narrow">
+  <div class="section block wide large">
     <%= f.label "Author name" %>
     <%= f.text_field :name, :class => "text" %>
   </div>
@@ -11,5 +11,5 @@
     <%= f.text_area :note, :rows => 8, :class => "text" %>
   </div>
   
-  <%= f.submit %>
+  <%= f.submit "Save", :class => "save button" %>
 <% end %>

@@ -1,21 +1,16 @@
 <% form_for @book do |f| %>
 	<%= error_messages_for "book", :id => "book_form_errors", :class => "errors", :message => nil %>
 
-	<div class="section block wide">
+	<div class="section block wide large">
 		<%= f.label :title %>
 		<%= f.text_field :title, :class => "text" %>
 	</div>
-
-	<div class="section primary narrow">
-		<%= f.label :author_id, "Author name" %>
-		<%= f.select( :author_id, Author.find(:all).collect {|p| [ p.name, p.id ] }, {}, { :class => "wide"} ) %>
+	
+	<div class="section block wide">
+		<%= f.label :author_name, "Author name" %>
+		<%= f.text_field :author_name, :class => "text" %>
 	</div>
-
-	<div class="section secondary narrow">
-		<%= f.label :new_author_name, "Or add a new author" %>
-		<%= f.text_field :new_author_name, :class => "text" %>
-	</div>
-
+	
 	<div class="section block wide">
 		<%= f.label :comment %>
 		<%= f.text_area :comment, :rows => 8, :class => "text" %>
@@ -31,5 +26,5 @@
 		<%= f.text_field :isbn, :class => "text" %>
 	</div>
   
-	<%= f.submit %>
+	<%= f.submit "Save", :class => "save button" %>
 <% end %>

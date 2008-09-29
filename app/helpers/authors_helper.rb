@@ -3,7 +3,7 @@ module AuthorsHelper
     if admin?
       link_to(link_options[:link_name] || "Edit",
         {:action => "edit", :id => author.permalink},
-        {:class => "edit"})
+        {:class => "edit button"})
 		end
 	end
 end
