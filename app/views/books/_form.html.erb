@@ -8,7 +8,7 @@
 	
 	<div class="section block wide">
 		<%= f.label :author_name, "Author name" %>
-		<%= text_field_with_auto_complete :book, :author_name, {:class => "autocomplete text"}, {:url => formatted_authors_path(:js), :method => 'get', :with => "'search=' + element.value"} %>
+		<%= f.text_field :author_name, :class => "text" %>
 	</div>
 	
 	<div class="section block wide">
