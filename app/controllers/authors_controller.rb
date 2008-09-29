@@ -50,9 +50,14 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    Author.find(params[:id]).destroy
-    flash[:notice] = "Author deleted."
-    redirect_to authors_path
+    @author = Author.find_by_permalink(params[:id])
+    
+    if @author.books.blank?
+      @author.destroy
+      flash[:notice] = "Author deleted." and redirect_to authors_path
+    else
+      flash[:alert] = "Only authors with no books may be deleted." and redirect_to author_path(@author)
+    end
   end
   
   protected
