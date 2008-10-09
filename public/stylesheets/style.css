@@ -63,8 +63,8 @@ a:hover { color: #d93600; text-decoration: underline; }
 .edit.button:link, .edit.button:visited, .edit.button:active { color: #303b40; border-width: 0.2em; border-color: #293033; padding: 0.1em 0.3em 0; font-size: 0.8em; text-transform: uppercase; }
 .edit.button:hover { color: #fff; border-color: #fff; text-decoration: none; }
 .save.button { float: left; background: #293033; color: #8a9499; }
-.save.button:hover { background: #a62900; color: #ccc; }
-.delete.button { background: #212526; color: #303b40; }
+.save.button:hover, .cancel.button:hover { background: #a62900; color: #ccc; }
+.delete.button, .cancel.button { background: #212526; color: #303b40; }
 .delete.button:hover { background: #a60e00; color: #ccc; }
 
 /* Notices

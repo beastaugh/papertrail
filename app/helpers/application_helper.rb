@@ -25,8 +25,8 @@ module ApplicationHelper
 
       javascript_include_tag(
         "jquery-1.2.6#{minify}.js",
-        "jquery.delegate.js",
-        "edit.js"
+        "edit.js",
+        "application.js"
       )
     end
   end

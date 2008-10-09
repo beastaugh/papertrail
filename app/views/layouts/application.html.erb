@@ -6,7 +6,6 @@
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, "Atom feed") %>
 	<%= papertrail_javascript %>
-	<%= javascript_include_tag :defaults %>
 	
 	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
 	<%= headcontent %>
