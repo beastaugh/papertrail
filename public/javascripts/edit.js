@@ -58,8 +58,8 @@ var Editable = function(wrapper, config) {
     return false;
   };
   
-  this.post = function(target, callback) {
-    var form = target.originalTarget.form;
+  this.post = function(e, callback) {
+    var form = e.target;
     jQuery.post(form.action, jQuery(form).serialize(), callback);
   };
   
@@ -68,17 +68,17 @@ var Editable = function(wrapper, config) {
     return false;
   };
   
-  this.save = function(target) {
+  this.save = function(e) {
     var self = this;
-    this.post(target, function(response, status) {
+    this.post(e, function(response, status) {
       if ('success' == status) self.list(response);
     });
     return false;
   };
   
-  this.destroy = function(target) {
+  this.destroy = function(e) {
     var self = this;
-    this.post(target, function(response, status) {
+    this.post(e, function(response, status) {
       if ('success' == status) self.remove();
     });
     return false;
@@ -86,8 +86,9 @@ var Editable = function(wrapper, config) {
   
   jQuery(this.wrapper).click(jQuery.delegate({
     '.edit': this.edit,
-    '.cancel': this.cancel,
-    'input.save:submit': this.save,
-    'input.delete:submit': this.destroy
+    '.cancel': this.cancel
+  }, this)).submit(jQuery.delegate({
+    'form.edit_book': this.save,
+    'form.button-to': this.destroy
   }, this));
 };
