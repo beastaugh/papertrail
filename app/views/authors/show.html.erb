@@ -4,12 +4,8 @@
 	
 	<h1 class="title"><%= yield :title %></h1>
 	
-	<% unless @author.note.blank? -%>
-		<div class="note">
-			<%= sanitize(markdown(@author.note)) %>
-		</div>
-	<% end -%>
-
+	<%= content_tag :div, sanitize(smartypants(markdown(@author.note))), :class => "note" unless @author.note.blank? %>
+	
 	<% unless @author.books.blank? %>
 	<h2>Books by this author</h2>
 		<ul class="booklist">
