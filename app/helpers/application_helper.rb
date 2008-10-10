@@ -75,6 +75,16 @@ module ApplicationHelper
     end
   end
   
+  def block_to_partial(partial_name, options = {}, &block)
+    options.merge!(:body => capture(&block))
+    concat(render(:partial => partial_name, :locals => options), block.binding)
+  end
+  
+  def content_wrapper(options = {}, &block)
+    yield and return if request.xhr?
+    block_to_partial('shared/wrapper', options, &block)
+  end
+  
   def book_page_link(book, link_options = {})
     link_to( link_options[:link_name] || sanitize(smartypants(book.title)), book_path(book) )
   end

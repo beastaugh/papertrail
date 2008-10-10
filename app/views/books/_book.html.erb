@@ -1,11 +1,9 @@
-<div class="book">
-	<div class="content">
-		<h2 class="title"><%= book_page_link(book) %></h2>
-	
-		<p class="about clear"><%= edit_link(book) %> By <%= author_page_link(book.author) %>, finished <%= h(nice_date(book.created_at)) %></p>
-	
-		<div class="summary">
-			<%= sanitize(smartypants(markdown(book.comment))) %>
-		</div>
+<% content_wrapper :klass => "book" do %>
+	<h2 class="title"><%= book_page_link(book) %></h2>
+
+	<p class="about clear"><%= edit_link(book) %> By <%= author_page_link(book.author) %>, finished <%= h(nice_date(book.created_at)) %></p>
+
+	<div class="comment">
+		<%= sanitize(smartypants(markdown(book.comment))) %>
 	</div>
-</div>
+<% end %>
