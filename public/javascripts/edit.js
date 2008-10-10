@@ -78,7 +78,8 @@ var Editable = function(wrapper, config) {
   
   this.destroy = function(e) {
     var self = this;
-    this.post(e, function(response, status) {
+    var ays = confirm("Are you sure?");
+    if (ays) this.post(e, function(response, status) {
       if ('success' == status) self.remove();
     });
     return false;
