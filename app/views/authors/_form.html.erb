@@ -1,4 +1,4 @@
-<% form_for @author do |f| %>
+<% form_for @author, :html => {:class => "edit_form"} do |f| %>
   <%= error_messages_for "author" %>
   
   <div class="section block wide large">

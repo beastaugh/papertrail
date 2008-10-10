@@ -89,7 +89,7 @@ var Editable = function(wrapper, config) {
     '.edit': this.edit,
     '.cancel': this.cancel
   }, this)).submit(jQuery.delegate({
-    'form.edit_book': this.save,
+    'form.edit_form': this.save,
     'form.button-to': this.destroy
   }, this));
 };
