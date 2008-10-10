@@ -80,7 +80,7 @@ module ApplicationHelper
     concat(render(:partial => partial_name, :locals => options), block.binding)
   end
   
-  def content_wrapper(options = {}, &block)
+  def editable_content_wrapper(options = {}, &block)
     yield and return if request.xhr?
     block_to_partial('shared/wrapper', options, &block)
   end
