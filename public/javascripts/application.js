@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-  jQuery('.book').each(function() {
+  jQuery('.editable').each(function() {
     var editable = new Editable(this);
   });
 });

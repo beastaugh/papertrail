@@ -82,7 +82,7 @@ module ApplicationHelper
   
   def editable_content_wrapper(options = {}, &block)
     yield and return if request.xhr?
-    block_to_partial('shared/wrapper', options, &block)
+    block_to_partial('shared/editable_wrapper', options, &block)
   end
   
   def book_page_link(book, link_options = {})
