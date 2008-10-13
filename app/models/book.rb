@@ -17,10 +17,9 @@ class Book < ActiveRecord::Base
                       :with => /^(\d{13}|\d{10})?$/,
                       :message => "must be a valid ISBN with 10 or 13 digits."
   
-  # Lists all books in the database.
-  def self.list_books(options = {})
+  def self.list_books(page, per_page, options = {})
     with_scope :find => options do
-      find(:all)
+      paginate :per_page => per_page, :page => page
     end
   end
   
