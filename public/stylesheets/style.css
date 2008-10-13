@@ -22,7 +22,7 @@ img { border: none; color: #bf4f13; }
 	#header {}
 		#nav { margin: 0 0 1.5em 0; }
 	#content {}
-	#footer { padding: 1em 0; margin-bottom: 2em; }
+	#footer { margin-bottom: 5em; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -66,6 +66,11 @@ a:hover { color: #d93600; text-decoration: underline; }
 .save.button:hover, .cancel.button:hover { background: #a62900; color: #ccc; }
 .delete.button, .cancel.button { background: #212526; color: #303b40; }
 .delete.button:hover { background: #a60e00; color: #ccc; }
+
+.pagination { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
+.prev_page, .next_page { display: block; padding: 0.2em; }
+.prev_page { float: left; padding-left: 1.5em; }
+.next_page { float: right; padding-right: 1.5em; }
 
 /* Notices
 ------------------------------*/
@@ -119,4 +124,4 @@ ul#nav { list-style: none; }
 
 /* Footer
 ------------------------------*/
-#footer { background: url('/images/dot.gif') repeat-x 0 0; color: #666; }
+#footer { color: #666; }
