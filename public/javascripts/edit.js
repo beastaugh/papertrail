@@ -1,6 +1,6 @@
 jQuery.delegate = function(rules, scope) {
   return function(e) {
-    var target = $(e.target);
+    var target = jQuery(e.target);
     for (var selector in rules)
       if (target.is(selector)) return rules[selector].apply(scope || this, jQuery.makeArray(arguments));
   };
@@ -20,9 +20,21 @@ var Editable = function(wrapper, config) {
   
   this.transition = function(height, operations, scope) {
     var wrapper = this.wrapper;
+    wrapper.children().each(function() {
+      jQuery(this).css({width: wrapper.width()});
+    });
     wrapper.animate({opacity: 0, height: height}, function() {
       operations.call(scope || null);
-      wrapper.animate({opacity: 1});
+      wrapper.animate({opacity: 1}, function() {
+        this.style.height = '';
+      });
+    });
+    return this;
+  };
+  
+  this.cleanup = function() {
+    this.wrapper.children().each(function() {
+      this.style.width = '';
     });
   };
   
@@ -47,6 +59,7 @@ var Editable = function(wrapper, config) {
       this.view.show();
       this.links.fadeIn();
     }, this);
+    this.cleanup();
   };
 
   this.remove = function() {
