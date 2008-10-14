@@ -22,7 +22,7 @@ img { border: none; color: #bf4f13; }
 	#header {}
 		#nav { margin: 0 0 1.5em 0; }
 	#content {}
-	#footer { margin-bottom: 5em; }
+	#footer { margin-top: 1em; margin-bottom: 5em; padding-top: 1.5em; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -125,4 +125,4 @@ ul#nav { list-style: none; }
 
 /* Footer
 ------------------------------*/
-#footer { color: #666; }
+#footer { background: url('/images/dot.gif') repeat-x 0 0; color: #666; }
