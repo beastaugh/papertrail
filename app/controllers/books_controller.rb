@@ -6,12 +6,12 @@ class BooksController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
   
   def index
-    @books = Book.list_books(params[:page], 10, :order => "created_at DESC")
+    @books = Book.list_books(params[:page], 20, :order => "created_at DESC")
     respond_to_defaults(@books, :except => [:id, :author_id])
   end
   
   def all
-    @books = Book.list_books(params[:page], 10, :order => "title ASC")
+    @books = Book.list_books(params[:page], 20, :order => "title ASC")
   end
   
   def covers

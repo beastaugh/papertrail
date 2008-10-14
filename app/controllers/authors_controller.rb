@@ -17,7 +17,7 @@ class AuthorsController < ApplicationController
       end
       
       f.html do
-        @authors = Author.list_authors(params[:page], 2)
+        @authors = Author.list_authors(params[:page], 20)
       end
     end
   end
