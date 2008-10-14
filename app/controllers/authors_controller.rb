@@ -10,9 +10,14 @@ class AuthorsController < ApplicationController
       f.js { @authors = Author.find(:all,
         :conditions => ['name LIKE ?', "%#{params[:search]}%"]) }
       
-      @authors = Author.list_authors
-      f.html
-      f.xml { render :xml => @authors.to_xml(:except => [:id]) }
+      f.xml do
+        @authors = Author.find(:all)
+        render :xml => @authors.to_xml(:except => [:id])
+      end
+      
+      f.html do
+        @authors = Author.list_authors(params[:page], 2)
+      end
     end
   end
   

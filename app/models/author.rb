@@ -10,8 +10,10 @@ class Author < ActiveRecord::Base
                       :with => %r{\A[a-z\d][a-z\d\_\-]*[a-z\d]\z}
     
   # Lists all authors in the database.
-  def self.list_authors
-    find(:all, :order => "name ASC")
+  def self.list_authors(page, per_page, options = {})
+    with_scope :find => options do
+      paginate :per_page => per_page, :page => page
+    end
   end
   
   # Enables pretty permalinks
