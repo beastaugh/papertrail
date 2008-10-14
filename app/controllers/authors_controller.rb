@@ -12,7 +12,8 @@ class AuthorsController < ApplicationController
       
       f.xml do
         @authors = Author.find(:all)
-        render :xml => @authors.to_xml(:except => [:id])
+        options = {:except => [:id], :include => {:books => {:except => [:id, :author_id]}}}
+        render :xml => @authors.to_xml(options)
       end
       
       f.html do
