@@ -67,10 +67,11 @@ a:hover { color: #d93600; text-decoration: underline; }
 .delete.button, .cancel.button { background: #212526; color: #303b40; }
 .delete.button:hover { background: #a60e00; color: #ccc; }
 
-.pagination { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
-.prev_page, .next_page { display: block; padding: 0.2em; }
-.prev_page { float: left; padding-left: 1.5em; }
-.next_page { float: right; padding-right: 1.5em; }
+.page-turner { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
+.page-turner .prev_page, .next_page { display: block; padding: 0.2em; }
+.page-turner .prev_page { float: left; padding-left: 1.5em; }
+.page-turner .next_page { float: right; padding-right: 1.5em; }
+.page-turner .disabled { color: #666; }
 
 /* Notices
 ------------------------------*/
