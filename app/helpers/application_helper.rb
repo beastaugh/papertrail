@@ -93,7 +93,7 @@ module ApplicationHelper
     link_to sanitize(smartypants(author.name)), author_path(author)
   end
 
-  def pagination(target, options = {})
+  def page_turner(target, options = {})
     options.merge! :container => true, :page_links => false,
                    :prev_label => "Previous", :next_label => "Next",
                    :class => "pagination clear"
