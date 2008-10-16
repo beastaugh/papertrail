@@ -18,24 +18,21 @@ var Editable = function(wrapper, config) {
   this.view.after('<div class="form" style="display:none;"></div>');
   this.form = this.view.next();
   
-  this.transition = function(height, operations, scope) {
-    var wrapper = this.wrapper;
-    wrapper.children().each(function() {
-      jQuery(this).css({width: wrapper.width()});
-    });
-    wrapper.animate({opacity: 0, height: height}, function() {
-      operations.call(scope || null);
-      wrapper.animate({opacity: 1}, function() {
-        this.style.height = '';
-      });
-    });
-    return this;
+  function emify(pixels) {
+    if (typeof pixels == 'number') return (pixels / 13).toString() + 'em';
   };
   
-  this.cleanup = function() {
-    this.wrapper.children().each(function() {
-      this.style.width = '';
+  this.transition = function(height, operations, scope) {
+    var wrapper = this.wrapper;
+    var self = this;
+    wrapper.children().each(function() {
+      jQuery(this).css({width: emify(wrapper.width())});
     });
+    wrapper.animate({opacity: 0, height: emify(height)}, function() {
+      operations.call(scope || null);
+      wrapper.animate({opacity: 1});
+    });
+    return this;
   };
   
   this.edit = function() {
@@ -59,7 +56,6 @@ var Editable = function(wrapper, config) {
       this.view.show();
       this.links.fadeIn();
     }, this);
-    this.cleanup();
   };
 
   this.remove = function() {
