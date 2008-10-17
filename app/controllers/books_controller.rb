@@ -4,6 +4,8 @@ class BooksController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
+  caches_page :index, :if => Proc.new { |c| !c.request.format.html? }
+  cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
   def index
     @books = Book.list_books(params[:page], 20, :order => "created_at DESC")

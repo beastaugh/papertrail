@@ -4,12 +4,12 @@
 class BookSweeper < ActionController::Caching::Sweeper
   observe Book
   
-  # If the sweeper detects that a book was saved, call this
+  # Expire cache if a book is saved
   def after_save(book)
     expire_cache(book)
   end
 
-  # If the sweeper detects that a book was deleted, call this
+  # Expire cache if a book is deleted
   def after_destroy(book)
     expire_cache(book)
   end
@@ -17,17 +17,8 @@ class BookSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache(book)
-    # Expire the home page
-    expire_page('/index')
-    expire_page('books/index')
-    
-    # Expire the 'All books' page too
-    expire_page(:controller => 'books', :action => 'all')
-    
-    # And the 'Browse covers' page
-    expire_page(:controller => 'books', :action => 'covers')
-    
-    # Finally expire the book page
-    expire_page(:controller => 'books', :action => 'show', :id => book.permalink)
+    # Expire the index action XML and Atom feed
+    expire_page '/books.atom'
+    expire_page '/books.xml'
   end  
 end
