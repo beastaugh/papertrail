@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   def respond_to_defaults(resource, options = {})
     respond_to do |f|
       f.html
-      f.atom
       f.xml { render :xml => resource.to_xml(options) }
     end
   end
