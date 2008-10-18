@@ -8,7 +8,7 @@ class BookSweeper < ActionController::Caching::Sweeper
   def after_save(book)
     expire_cache(book)
   end
-
+  
   # Expire cache if a book is deleted
   def after_destroy(book)
     expire_cache(book)
@@ -18,7 +18,8 @@ class BookSweeper < ActionController::Caching::Sweeper
   
   def expire_cache(book)
     # Expire the index action XML and Atom feed
-    expire_page '/books.atom'
-    expire_page '/books.xml'
-  end  
+    expire_page "/books.atom"
+    expire_page "/books.xml"
+    expire_page "/books/#{book.permalink}.xml"
+  end
 end

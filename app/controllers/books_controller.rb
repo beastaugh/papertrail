@@ -4,7 +4,7 @@ class BooksController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
-  caches_page :index, :if => Proc.new { |c| !c.request.format.html? }
+  caches_page :index, :show, :if => Proc.new { |c| !c.request.format.html? }
   cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
   @@private_book_attrs = [:id, :author_id]
