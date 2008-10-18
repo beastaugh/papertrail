@@ -6,7 +6,10 @@ class AuthorsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
   caches_page :index, :show, :if => Proc.new { |c| !c.request.format.html? }
   cache_sweeper :author_sweeper, :only => [:create, :update, :destroy]
-    
+  
+  @@private_author_attrs = {:except => [:id],
+    :include => {:books => {:except => [:id, :author_id]}}}
+  
   def index
     respond_to do |f|
       f.js { @authors = Author.find(:all,
@@ -14,8 +17,7 @@ class AuthorsController < ApplicationController
       
       f.xml do
         @authors = Author.find(:all)
-        options = {:except => [:id], :include => {:books => {:except => [:id, :author_id]}}}
-        render :xml => @authors.to_xml(options)
+        render :xml => @authors.to_xml(@@private_author_attrs)
       end
       
       f.html do
@@ -26,6 +28,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.find_by_permalink(params[:id])
+    respond_to_defaults(@author, @@private_author_attrs)
   end
   
   def new
