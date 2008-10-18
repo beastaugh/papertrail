@@ -7,9 +7,11 @@ class BooksController < ApplicationController
   caches_page :index, :if => Proc.new { |c| !c.request.format.html? }
   cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
+  @@private_book_attrs = [:id, :author_id]
+  
   def index
     @books = Book.list_books(params[:page], 20, :order => "created_at DESC")
-    respond_to_defaults(@books, :except => [:id, :author_id])
+    respond_to_defaults(@books, :except => @@private_book_attrs)
   end
   
   def all
