@@ -95,7 +95,7 @@ module ApplicationHelper
 
   def page_turner(target, options = {})
     options.merge! :container => true, :page_links => false,
-                   :prev_label => "Previous", :next_label => "Next",
+                   :previous_label => "Previous", :next_label => "Next",
                    :class => "page-turner clear"
     will_paginate(target, options)
   end
