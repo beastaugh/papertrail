@@ -11,7 +11,11 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.list_books(params[:page], 20, :order => "created_at DESC")
-    respond_to_defaults(@books, :except => @@private_book_attrs)
+    respond_to do |f|
+      f.html
+      f.atom
+      f.xml { render :xml => @books.to_xml(:except => @@private_book_attrs) }
+    end
   end
   
   def all
@@ -24,6 +28,7 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find_by_permalink(params[:id])
+    respond_to_defaults(@book, :except => @@private_book_attrs)
   end
   
   def new
