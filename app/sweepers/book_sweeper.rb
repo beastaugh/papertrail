@@ -4,7 +4,7 @@
 class BookSweeper < ActionController::Caching::Sweeper
   observe Book
   
-  # Expire cache if a book is saved
+  # Expire cache if a book is added or updated
   def after_save(book)
     expire_cache(book)
   end
@@ -17,7 +17,7 @@ class BookSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache(book)
-    # Expire the index action XML and Atom feed
+    # Expire XML and Atom feed caches
     expire_page "/books.atom"
     expire_page "/books.xml"
     expire_page "/books/#{book.permalink}.xml"
