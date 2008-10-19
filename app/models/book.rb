@@ -1,11 +1,12 @@
 require 'urlify'
 
 class Book < ActiveRecord::Base
-  attr_accessible :title, :comment, :cover_url, :isbn, :author_name
-  belongs_to :author
+  attr_accessible :title, :comment, :cover_url, :isbn, :author_names
+  has_many :authorships
+  has_many :authors, :through => :authorships
   before_validation :generate_permalink, :clean_isbn
   
-  validates_presence_of :title, :author, :permalink
+  validates_presence_of :title, :permalink, :authors
   validates_uniqueness_of :title, :permalink
   validates_format_of :cover_url,
                       :with => %r{\.(gif|jpg|png)$}i,
@@ -18,19 +19,24 @@ class Book < ActiveRecord::Base
                       :message => "must be a valid ISBN with 10 or 13 digits."
   
   def self.list_books(page, per_page, options = {})
+    options.merge!({:include => {:authorships => :author}})
     with_scope :find => options do
       paginate :per_page => per_page, :page => page
     end
   end
   
-  def author_name
-    author.name if author
+  def author_names
+    authors.map {|a| a.name}.join(", ") if authors
   end
   
-  def author_name=(name)
-    self.author = Author.find_or_create_by_name(name) unless name.blank?
+  def author_names=(names)
+    self.authors = names.split(/\s*,\s*/).map do |name|
+      unless name.blank?
+        Author.find_or_initialize_by_name(name)
+      end
+    end
   end
-    
+  
   def clean_isbn
     self.isbn = self.isbn.gsub(/\D/, "")
   end

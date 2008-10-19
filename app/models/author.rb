@@ -2,7 +2,8 @@ require 'urlify'
 
 class Author < ActiveRecord::Base
   attr_accessible :name, :note
-  has_many :books
+  has_many :authorships
+  has_many :books, :through => :authorships
   before_validation :generate_permalink
   validates_presence_of :name, :permalink
   validates_uniqueness_of :name, :permalink
@@ -11,6 +12,7 @@ class Author < ActiveRecord::Base
     
   # Lists all authors in the database.
   def self.list_authors(page, per_page, options = {})
+    options.merge!({:include => {:authorships => :book}})
     with_scope :find => options do
       paginate :per_page => per_page, :page => page
     end

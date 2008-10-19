@@ -93,6 +93,12 @@ module ApplicationHelper
   def author_page_link(author)
     link_to sanitize(smartypants(author.name)), author_path(author)
   end
+  
+  def author_pages_link(authors)
+    authors.map { |author|
+      link_to sanitize(smartypants(author.name)), author_path(author)
+    }.join(", ")
+  end
 
   def page_turner(target, options = {})
     options.merge! :container => true, :page_links => false,
