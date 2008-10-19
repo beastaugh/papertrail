@@ -7,8 +7,8 @@ class AuthorsController < ApplicationController
   caches_page :index, :show, :if => Proc.new { |c| !c.request.format.html? }
   cache_sweeper :author_sweeper, :only => [:create, :update, :destroy]
   
-  @@private_author_attrs = {:except => [:id],
-    :include => {:books => {:except => [:id, :author_id]}}}
+  @@api_attrs = {:except => :id,
+    :include => {:books => {:except => :id}}}
   
   def index
     respond_to do |f|
@@ -17,7 +17,7 @@ class AuthorsController < ApplicationController
       
       f.xml do
         @authors = Author.find(:all)
-        render :xml => @authors.to_xml(@@private_author_attrs)
+        render :xml => @authors.to_xml(@@api_attrs)
       end
       
       f.html do
@@ -28,7 +28,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.find_by_permalink(params[:id])
-    respond_to_defaults(@author, @@private_author_attrs)
+    respond_to_defaults(@author, @@api_attrs)
   end
   
   def new
