@@ -1,3 +1,4 @@
 database.yml
 papertrail.yml
+mongrel_cluster.yml
 deploy.rb
