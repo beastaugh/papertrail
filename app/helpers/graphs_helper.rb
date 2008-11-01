@@ -5,7 +5,7 @@ module GraphsHelper
     
     xml = Builder::XmlMarkup.new
     xml.svg :xmlns => "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink",
-            :width => 520, :height => bar_height + 20, :zoomAndPan => false do
+            :width => 520, :height => bar_height + 20, :zoomAndPan => "disable" do
       
       months.each_with_index do |month, i|
         height = month[:books] * 20
