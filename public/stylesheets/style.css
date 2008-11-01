@@ -4,7 +4,7 @@ Paper Trail stylesheet
 
 /* Cleanup
 ------------------------------*/
-body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
+html, body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
 .clear:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 * { margin: 0; padding: 0; }
 

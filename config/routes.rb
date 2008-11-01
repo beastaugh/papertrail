@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   def map.controller_actions(controller, actions)
     actions.each do |action|
-      self.send("#{controller}_#{action}", "#{controller}/#{action}", :controller => controller, :action => action)
+      self.send("#{controller}_#{action}", "#{controller}/#{action}",
+        :controller => controller, :action => action)
     end
   end
   
@@ -12,6 +13,9 @@ ActionController::Routing::Routes.draw do |map|
     sessions.login 'login', :action => 'new'
     sessions.logout 'logout', :action => 'destroy'
   end
-    
+  
+  map.connect "graphs", :controller => "graphs", :action => "index"
+  map.connect "graphs/frequency", :controller => "graphs", :action => "frequency"
+      
   map.root :controller => 'books'
 end

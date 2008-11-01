@@ -42,7 +42,8 @@ module ApplicationHelper
     navlinks = [
       { :id => "all-books", :name => "All books", :path => books_all_path },
       { :id => "book-covers", :name => "Covers", :path => books_covers_path },
-      { :id => "authors", :name => "Authors", :path => authors_path }
+      { :id => "authors", :name => "Authors", :path => authors_path },
+      { :id => "graphs", :name => "Graphs", :path => "/graphs/frequency" }
       # Additional navbar links go here
     ]
     

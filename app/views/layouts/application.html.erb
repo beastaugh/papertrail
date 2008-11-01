@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="en-GB">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><%= yield(:title) || sitetitle %></title>
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, "Atom feed") %>
