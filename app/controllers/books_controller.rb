@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   caches_page :index, :show, :if => Proc.new { |c| !c.request.format.html? }
   cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
-  @@api_attrs = {:except => :id,
+  API_ATTRS = {:except => :id,
     :include => {:authors => {:except => :id}}}
   
   def index
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     respond_to do |f|
       f.html
       f.atom
-      f.xml { render :xml => @books.to_xml(@@api_attrs) }
+      f.xml { render :xml => @books.to_xml(API_ATTRS) }
     end
   end
   
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find_by_permalink(params[:id])
-    respond_to_defaults(@book, @@api_attrs)
+    respond_to_defaults(@book, API_ATTRS)
   end
   
   def new
