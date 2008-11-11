@@ -3,6 +3,10 @@ module ApplicationHelper
     text.blank? ? "" : RubyPants.new(text).to_html
   end
   
+  def lang(page_lang)
+    content_for(:lang) { page_lang }
+  end
+  
   def title(page_title)
     content_for(:title) { page_title }
   end
