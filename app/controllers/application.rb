@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   session :session_key => '_papertrail_session_id'
   filter_parameter_logging "password"  
   helper_method :admin?
+  after_filter :set_content_type
     
   protected
   
@@ -25,5 +26,9 @@ class ApplicationController < ActionController::Base
       f.html
       f.xml { render :xml => resource.to_xml(options) }
     end
+  end
+  
+  def set_content_type
+    response.charset = "utf-8"
   end
 end
