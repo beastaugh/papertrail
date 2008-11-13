@@ -4,7 +4,7 @@ class AuthorsController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
-  caches_page :index, :show, :if => Proc.new { |c| !c.request.format.html? }
+  caches_page :index, :show, :if => Proc.new { |c| c.request.format.xml? || c.request.format.atom? }
   cache_sweeper :author_sweeper, :only => [:create, :update, :destroy]
   
   API_ATTRS = {:except => :id,
