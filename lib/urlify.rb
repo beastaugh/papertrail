@@ -66,7 +66,8 @@ class String
     'þ' => 'th',
     'ÿ' => 'y',
     'Œ' => 'OE',
-    'œ' => 'oe'
+    'œ' => 'oe',
+    '&' => 'and'
   }
   
   # Converts an input string into a URL-safe string.
