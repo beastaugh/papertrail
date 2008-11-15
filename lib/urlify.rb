@@ -87,7 +87,15 @@ class String
       separator = "_"
     end
     
-    self.strip.deaccentuate.downcase.gsub(/\s/, "#{separator}").gsub(/[^a-z\d\_\-\+]/, "")
+    self.strip.remove_subtitle.deaccentuate.downcase.gsub(/\s/, "#{separator}").gsub(/[^a-z\d\_\-\+]/, "")
+  end
+  
+  # Removes everything from a string after the first colon
+  #
+  # Ensures that books with really long subtitles don't get given equally long
+  # permalinks.
+  def remove_subtitle
+    self.split(/\s*:\s*/).first
   end
   
   # Removes diacritics from an input string's characters.
