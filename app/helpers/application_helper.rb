@@ -1,3 +1,5 @@
+require 'literate_join'
+
 module ApplicationHelper
   def smartypants(text)
     text.blank? ? "" : RubyPants.new(text).to_html
@@ -101,7 +103,7 @@ module ApplicationHelper
   def author_pages_link(authors)
     authors.map { |author|
       link_to sanitize(smartypants(author.name)), author_path(author)
-    }.join(", ")
+    }.literate_join
   end
 
   def page_turner(target, options = {})
