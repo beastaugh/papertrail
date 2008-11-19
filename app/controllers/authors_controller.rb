@@ -28,6 +28,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.find_by_permalink(params[:id])
+    maybe_raise_404(@author)
     respond_to_defaults(@author, API_ATTRS)
   end
   
@@ -36,7 +37,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.new(params[:author])    
+    @author = Author.new(params[:author])
     render :action => "new" and return unless @author.save
 
     flash[:notice] = "Author successfully added."
@@ -45,11 +46,13 @@ class AuthorsController < ApplicationController
 
   def edit
     @author = Author.find_by_permalink(params[:id])
+    maybe_raise_404(@author)
     render :layout => false if request.xhr?
   end
 
   def update
     @author = Author.find_by_permalink(params[:id])
+    maybe_raise_404(@author)
     render :action => "edit" and return unless @author.update_attributes(params[:author])
     
     if request.xhr?
@@ -62,7 +65,7 @@ class AuthorsController < ApplicationController
 
   def destroy
     @author = Author.find_by_permalink(params[:id])
-    
+    maybe_raise_404(@author)
     if @author.books.blank?
       @author.destroy
       flash[:notice] = "Author deleted." and redirect_to authors_path

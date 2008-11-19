@@ -29,6 +29,7 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find_by_permalink(params[:id])
+    maybe_raise_404(@book)
     respond_to_defaults(@book, API_ATTRS)
   end
   
@@ -46,11 +47,13 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find_by_permalink(params[:id])
+    maybe_raise_404(@book)
     render :layout => false if request.xhr?
   end
 
   def update
     @book = Book.find_by_permalink(params[:id])
+    maybe_raise_404(@book)
     render :action => "edit", :layout => !request.xhr? and return unless @book.update_attributes(params[:book])
     
     if request.xhr?
@@ -62,7 +65,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    Book.find_by_permalink(params[:id]).destroy
+    @book = Book.find_by_permalink(params[:id])
+    maybe_raise_404(@book)
+    @book.destroy
     flash[:notice] = "Book deleted."
     redirect_to root_path
   end

@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def maybe_raise_404(resource)
+    raise ActiveRecord::RecordNotFound, "Page not found" if resource.nil?
+  end
+  
   def respond_to_defaults(resource, options = {})
     respond_to do |f|
       f.html
