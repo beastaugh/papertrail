@@ -15,8 +15,8 @@ As well as the usual Rails dependencies, Paper Trail requires the following Gems
 
 The following plugins are also needed:
 
-* [will_paginate](http://github.com/mislav/will_paginate/)
-* [acts_as_list](http://github.com/rails/acts_as_list/)
+* [`will_paginate`](http://github.com/mislav/will_paginate/)
+* [`acts_as_list`](http://github.com/rails/acts_as_list/)
 
 They are included as submodules in Paper Trail's Git repository. To install them when you first clone the repository, run these commands:
 
