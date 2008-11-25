@@ -2,7 +2,7 @@ require 'literate_join'
 
 module ApplicationHelper
   def markdown(text)
-    text.blank? ? "" : RDiscount.new(text, :smart).to_html
+    text.blank? ? "" : Markdown.new(text, :smart).to_html
   end
   
   def lang(page_lang)
