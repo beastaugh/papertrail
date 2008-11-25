@@ -8,7 +8,6 @@ Rails::Initializer.run do |config|
   
   # Require the latest Rubypants gem
   config.gem 'rdiscount'
-  config.gem 'rubypants'
   
   config.action_controller.session = {
     :session_key => "_papertrail_session",

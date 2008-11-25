@@ -1,10 +1,10 @@
-<%- title sanitize(smartypants(@author.name)) -%>
+<%- title sanitize(@author.name) -%>
 <% editable_content_wrapper :type => "author" do %>
 	<%= edit_link(@author) %>
 	
 	<h1 class="title"><%= yield :title %></h1>
 	
-	<%= content_tag :div, sanitize(smartypants(markdown(@author.note))), :class => "note" unless @author.note.blank? %>
+	<%= content_tag :div, sanitize(markdown(@author.note)), :class => "note" unless @author.note.blank? %>
 	
 	<% unless @author.books.blank? %>
 	<h2>Books by this author</h2>

@@ -2,11 +2,7 @@ require 'literate_join'
 
 module ApplicationHelper
   def markdown(text)
-    text.blank? ? "" : RDiscount.new(text).to_html
-  end
-  
-  def smartypants(text)
-    text.blank? ? "" : RubyPants.new(text).to_html
+    text.blank? ? "" : RDiscount.new(text, :smart).to_html
   end
   
   def lang(page_lang)
@@ -82,7 +78,7 @@ module ApplicationHelper
     blurb = APP_CONFIG["blurb"]
     
     unless blurb.blank?
-      content_tag(:div, sanitize(smartypants(markdown(APP_CONFIG["blurb"]))), :id => "blurb")
+      content_tag(:div, sanitize(markdown(APP_CONFIG["blurb"])), :id => "blurb")
     end
   end
   
@@ -97,16 +93,16 @@ module ApplicationHelper
   end
   
   def book_page_link(book, link_options = {})
-    link_to( link_options[:link_name] || sanitize(smartypants(book.title)), book_path(book) )
+    link_to( link_options[:link_name] || sanitize(book.title), book_path(book) )
   end
   
   def author_page_link(author)
-    link_to sanitize(smartypants(author.name)), author_path(author)
+    link_to sanitize(author.name), author_path(author)
   end
   
   def author_pages_link(authors)
     authors.map { |author|
-      link_to sanitize(smartypants(author.name)), author_path(author)
+      link_to sanitize(author.name), author_path(author)
     }.literate_join
   end
 

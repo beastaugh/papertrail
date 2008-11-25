@@ -10,8 +10,7 @@ Dependencies
 
 As well as the usual Rails dependencies, Paper Trail requires the following Gems:
 
-* [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/).
-* [RubyPants](http://chneukirchen.org/blog/static/projects/rubypants.html) is a Ruby port of [SmartyPants](http://daringfireball.net/projects/smartypants/).
+* [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/) and [SmartyPants](http://daringfireball.net/projects/smartypants/).
 
 The following plugins are also needed:
 
