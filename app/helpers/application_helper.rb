@@ -1,6 +1,10 @@
 require 'literate_join'
 
 module ApplicationHelper
+  def markdown(text)
+    text.blank? ? "" : RDiscount.new(text).to_html
+  end
+  
   def smartypants(text)
     text.blank? ? "" : RubyPants.new(text).to_html
   end

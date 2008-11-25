@@ -7,6 +7,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'London'
   
   # Require the latest Rubypants gem
+  config.gem 'rdiscount'
   config.gem 'rubypants'
   
   config.action_controller.session = {
