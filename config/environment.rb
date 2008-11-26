@@ -6,7 +6,7 @@ Rails::Initializer.run do |config|
   config.active_record.default_timezone = :utc
   config.time_zone = 'London'
   
-  # Require the latest Rubypants gem
+  # Require RDiscount for Markdown formatting
   config.gem 'rdiscount'
   
   config.action_controller.session = {
