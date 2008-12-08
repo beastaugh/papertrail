@@ -22,6 +22,8 @@ class BookSweeper < ActionController::Caching::Sweeper
     expire_page "/books.xml"
     expire_page "/books/#{book.permalink}.xml"
     
+    expire_page "/graphs/frequency.svg"
+    
     expire_page "/authors.xml"
     book.authors.each do |author|
       expire_page "/authors/#{author.permalink}.xml"
