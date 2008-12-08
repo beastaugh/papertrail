@@ -1,11 +1,12 @@
 class GraphsController < ApplicationController
+  FREQ_GRAPH_PATH = Rails.public_path + "/graphs/frequency.svg"
   
   def index
     redirect_to "/graphs/frequency"
   end
   
   def frequency
-    response.content_type = "application/xhtml+xml"
+    return if File.exists?(FREQ_GRAPH_PATH)
     
     books = Book.count(:created_at,
       :conditions => ["created_at > ?", 1.year.ago],
@@ -23,8 +24,10 @@ class GraphsController < ApplicationController
       @months[month_mapping.index(book.first.month)][:books] += 1
     end
     
-    @maxheight = @months.map { |m|
-      m[:books]
-    }.sort.last
+    maxheight = @months.map {|m| m[:books] }.sort.last
+    
+    File.open(FREQ_GRAPH_PATH, "w+") do |f|
+      f.puts @template.yearly_graph(@months, :maxheight => maxheight)
+    end
   end
 end

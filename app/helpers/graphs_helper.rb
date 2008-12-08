@@ -14,7 +14,7 @@ module GraphsHelper
           xml.rect :x => 0, :y => bar_height - height,
                    :width => 41.5, :height => height + 1, :fill => "#212325"
           xml.text Time::RFC2822_MONTH_NAME[month[:month] - 1], :x => 8, :y => bar_height + 17,
-                   :style => "font-family:Helvetica, Arial, sans-serif; font-size:0.9em; fill:#ccc;"
+                   :style => "font-family:Helvetica, Arial, sans-serif; font-size:12px; fill:#ccc;"
         end
       end
     end

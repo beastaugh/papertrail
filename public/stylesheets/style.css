@@ -73,6 +73,10 @@ a:hover { color: #d93600; text-decoration: underline; }
 .page-turner .next_page { float: right; padding-right: 1.5em; }
 .page-turner .disabled { color: #666; }
 
+/* Graphs
+------------------------------*/
+.graph OBJECT, .graph IMG { display: block; }
+
 /* Notices
 ------------------------------*/
 .error, .notice, .alert { margin: 1em -1em 2em -1em; padding: 0.5em 1em; color: #fff; }
