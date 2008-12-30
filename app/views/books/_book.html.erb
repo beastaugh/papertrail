@@ -3,5 +3,5 @@
 
 	<p class="about clear"><%= edit_link(book) %> By <%= author_pages_link(book.authors) %>, finished <%= h(nice_date(book.created_at)) %></p>
 
-	<%= content_tag :div, sanitize(markdown(book.comment)), :class => "comment" unless book.comment.blank? %>
+	<%= content_tag :div, smartdown(book.comment), :class => "comment" unless book.comment.blank? %>
 <% end %>

@@ -9,7 +9,7 @@ atom_feed :language => "en-GB", :schema_date => "2008" do |feed|
     feed.entry(book) do |entry|
       entry.title book.title
       entry.content :type => "xhtml" do |x|
-        x << sanitize(markdown(book.comment))
+        x << markdown(book.comment)
       end
     end
   end

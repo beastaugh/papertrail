@@ -2,7 +2,11 @@ require 'literate_join'
 
 module ApplicationHelper
   def markdown(text)
-    text.blank? ? "" : Markdown.new(text, :smart).to_html
+    text.blank? ? "" : sanitize(Markdown.new(text).to_html)
+  end
+  
+  def smartdown(text)
+    text.blank? ? "" : sanitize(Markdown.new(text, :smart).to_html)
   end
   
   def lang(page_lang)
@@ -78,7 +82,7 @@ module ApplicationHelper
     blurb = APP_CONFIG["blurb"]
     
     unless blurb.blank?
-      content_tag(:div, sanitize(markdown(APP_CONFIG["blurb"])), :id => "blurb")
+      content_tag(:div, smartdown(APP_CONFIG["blurb"]), :id => "blurb")
     end
   end
   

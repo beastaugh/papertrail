@@ -3,5 +3,5 @@
 	<h1 class="title"><%= yield :title %></h1>
 	<p class="about"><%= edit_link(@book) %> By <%= author_pages_link(@book.authors) %>, finished <%= h(nice_date(@book.created_at)) %></p>
 	
-	<%= content_tag :div, sanitize(markdown(@book.comment)), :class => "comment" unless @book.comment.blank? %>
+	<%= content_tag :div, smartdown(@book.comment), :class => "comment" unless @book.comment.blank? %>
 <% end %>
