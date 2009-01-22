@@ -34,7 +34,7 @@ module ApplicationHelper
       minify = ".min" if RAILS_ENV == 'production'
 
       javascript_include_tag(
-        "jquery-1.2.6#{minify}.js",
+        "jquery-1.3#{minify}.js",
         "edit.js",
         "application.js"
       )
