@@ -4,7 +4,7 @@
 	<title><%= yield(:title) || sitetitle %></title>
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, "Atom feed") %>
-	<%= papertrail_javascript %>
+	<%= javascript_include_tag("jquery-1.3.min.js", "edit.js", "application.js") %>
 	
 	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
 	<%= headcontent %>
