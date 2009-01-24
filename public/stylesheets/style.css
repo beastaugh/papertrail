@@ -85,12 +85,13 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Forms
 ------------------------------*/
-label { margin: 0 0 0.2em 0; display:block; }
+label { margin: 0 0 0.4em 1px; display:block; color: #999; }
 input, textarea { outline: none; }
-.text { border: 1px solid #333; padding: 1px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
-.text:focus { border: 1px solid #d93600; color: #fff; background: #000; }
-label, select.block, textarea, input.text { width: 98%;}
-.wide label, .wide select.block, .wide textarea, .wide input.text { width: 100%;}
+.text { border: 1px inset #333; padding: 5px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
+.text:focus { border-color: #d93600; color: #fff; background: #000; }
+textarea.text {max-width:99%;}
+label, select.block, textarea, input.text { width: 95%;}
+.wide label, .wide select.block, .wide textarea, .wide input.text { width: 98.5%;}
 .large .text {font-size:1.5em;}
 #submit, #delete { margin: 1em 0; }
 
