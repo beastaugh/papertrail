@@ -8,7 +8,7 @@ Paper Trail is a single-user publishing tool for book reviews. It's written in [
 Dependencies
 ------------
 
-As well as the usual Rails dependencies, Paper Trail requires the following Gems:
+Paper Trail is compatible with Rails 2.3. As well as the usual Rails dependencies, Paper Trail requires the following Gems:
 
 * [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/) and [SmartyPants](http://daringfireball.net/projects/smartypants/).
 
