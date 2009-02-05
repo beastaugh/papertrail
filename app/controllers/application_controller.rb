@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  session :session_key => '_papertrail_session_id'
   filter_parameter_logging "password"  
   helper_method :admin?
   after_filter :set_content_type
