@@ -12,12 +12,11 @@ Paper Trail is compatible with Rails 2.3. As well as the usual Rails dependencie
 
 * [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/) and [SmartyPants](http://daringfireball.net/projects/smartypants/).
 
-The following plugins are also needed:
+The following plugin is also needed:
 
 * [`will_paginate`](http://github.com/mislav/will_paginate/)
-* [`acts_as_list`](http://github.com/rails/acts_as_list/)
 
-They are included as submodules in Paper Trail's Git repository. To install them when you first clone the repository, run these commands:
+It is included as a submodule in Paper Trail's Git repository. To install them when you first clone the repository, run these commands:
 
     git submodule init
     git submodule update
