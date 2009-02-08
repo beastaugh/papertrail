@@ -3,7 +3,7 @@ require 'urlify'
 class Book < ActiveRecord::Base
   attr_accessible :title, :comment, :cover_url, :isbn, :author_names
   has_many :authorships
-  has_many :authors, :through => :authorships
+  has_many :authors, :through => :authorships, :order => :weight
   before_validation :generate_permalink, :clean_isbn
   
   validates_presence_of :title, :permalink, :authors
@@ -30,10 +30,23 @@ class Book < ActiveRecord::Base
   end
   
   def author_names=(names)
-    self.authors = names.split(/\s*,\s*/).map do |name|
-      unless name.blank?
-        Author.find_or_initialize_by_name(name)
-      end
+    current_authorships = Authorship.find_all_by_book_id(self.id) || []
+    
+    authors = names.split(/\s*,\s*/).reject(&:blank?).map do |name|
+      Author.find_by_name(name) || Author.create({:name => name})
+    end
+    
+    author_ids = authors.map {|a| a.id }
+    
+    current_authorships.each do |authorship|
+      authorship.destroy unless author_ids.include?(authorship.author_id)
+    end
+    
+    authors.each_with_index do |author, i|
+      authorship = Authorship.find_by_author_id_and_book_id(author.id, self.id) ||
+        Authorship.new(:author_id => author.id, :book_id => self.id)
+      authorship.weight = i
+      authorship.save!
     end
   end
   
