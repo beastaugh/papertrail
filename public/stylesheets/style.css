@@ -67,15 +67,19 @@ a:hover { color: #d93600; text-decoration: underline; }
 .delete.button, .cancel.button { background: #212526; color: #303b40; }
 .delete.button:hover { background: #a60e00; color: #ccc; }
 
-.page-turner { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
-.page-turner .prev_page, .next_page { display: block; padding: 0.2em; }
-.page-turner .prev_page { float: left; padding-left: 1.5em; }
-.page-turner .next_page { float: right; padding-right: 1.5em; }
+.page-turner { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.9em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
+.page-turner .prev_page, .next_page { display: block; padding: 0.2em; background-image: url('/images/page-arrows.png'); background-repeat: no-repeat; }
+.page-turner .prev_page { float: left; padding-left: 12px; background-position: 0 -93px; }
+.page-turner .next_page { float: right; padding-right: 12px; background-position: 100% -393px; }
 .page-turner .disabled { color: #666; }
+.page-turner .prev_page.disabled { background-position: 0 -193px; }
+.page-turner .next_page.disabled { background-position: 100% -493px; }
+.page-turner a.prev_page:hover { background-position: 0 7px; }
+.page-turner a.next_page:hover { background-position: 100% -293px; }
 
 /* Graphs
 ------------------------------*/
-.graph OBJECT, .graph IMG { display: block; }
+.graph object, .graph img { display: block; }
 
 /* Notices
 ------------------------------*/
