@@ -2,6 +2,6 @@
 
 <h1><%= yield :title %></h1>
 
-<%= render :partial => "book", :collection => @books %>
+<%= render @books %>
 
 <%= page_turner @books %>

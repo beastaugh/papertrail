@@ -56,7 +56,7 @@ class AuthorsController < ApplicationController
     render :action => "edit" and return unless @author.update_attributes(params[:author])
     
     if request.xhr?
-      render :partial => "authors/author", :locals => {:author => @author} and return unless request.referer == request.url
+      render "authors/author", :locals => {:author => @author} and return unless request.referer == request.url
       render :action => "show", :layout => false and return
     else
       flash[:notice] = "Author info updated." and redirect_to author_path(@author)
