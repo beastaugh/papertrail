@@ -19,10 +19,6 @@ class BooksController < ApplicationController
     end
   end
   
-  def all
-    @books = Book.list_books(params[:page], 10, :order => "title ASC")
-  end
-  
   def covers
     @books = Book.list_books(params[:page], 20, :conditions => "cover_url <> ''", :order => "title ASC")
   end
