@@ -11,17 +11,7 @@ Dependencies
 Paper Trail is compatible with Rails 2.3. As well as the usual Rails dependencies, Paper Trail requires the following Gems:
 
 * [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/) and [SmartyPants](http://daringfireball.net/projects/smartypants/).
-
-The following plugin is also needed:
-
 * [`will_paginate`](http://github.com/mislav/will_paginate/)
-
-It is included as a submodule in Paper Trail's Git repository. To install them when you first clone the repository, run these commands:
-
-    git submodule init
-    git submodule update
-
-You can read more about using Git submodules to track Rails plugins in [this article](http://woss.name/2008/04/09/using-git-submodules-to-track-vendorrails/).
 
 
 Configuration

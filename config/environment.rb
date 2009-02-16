@@ -8,6 +8,9 @@ Rails::Initializer.run do |config|
   
   # Require RDiscount for Markdown formatting
   config.gem 'rdiscount'
+  config.gem 'mislav-will_paginate',
+    :lib => 'will_paginate',
+    :source => 'http://gems.github.com'
   
   config.action_controller.session = {
     :session_key => "_papertrail_session",
