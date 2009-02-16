@@ -30,23 +30,17 @@ class Book < ActiveRecord::Base
   end
   
   def author_names=(names)
-    current_authorships = Authorship.find_all_by_book_id(self.id) || []
-    
-    authors = names.split(/\s*,\s*/).reject(&:blank?).map do |name|
-      Author.find_by_name(name) || Author.create({:name => name})
+    @author_names = names.split(/\s*,\s*/).reject(&:blank?)
+    self.authors = @author_names.map do |name|
+      Author.find_or_create_by_name(name)
     end
-    
-    author_ids = authors.map {|a| a.id }
-    
-    current_authorships.each do |authorship|
-      authorship.destroy unless author_ids.include?(authorship.author_id)
-    end
-    
-    authors.each_with_index do |author, i|
-      authorship = Authorship.find_by_author_id_and_book_id(author.id, self.id) ||
-        Authorship.new(:author_id => author.id, :book_id => self.id)
-      authorship.weight = i
-      authorship.save!
+  end
+  
+  def after_save
+    self.authorships.each do |authorship|
+      author = self.authors.select {|a| a.id == authorship.author_id }.first
+      authorship.weight = @author_names.index(author.name) || 0
+      authorship.save
     end
   end
   
