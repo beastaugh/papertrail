@@ -12,7 +12,7 @@ class Author < ActiveRecord::Base
     
   # Lists all authors in the database.
   def self.list_authors(page, per_page, options = {})
-    options.merge!({:include => {:authorships => :book}})
+    options.merge!({:include => {:authorships => :book}, :order => :name})
     with_scope :find => options do
       paginate :per_page => per_page, :page => page
     end
