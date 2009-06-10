@@ -6,6 +6,6 @@ class Array
       return self.join(connective) + last_connective + last
     end
     
-    self
+    self.first
   end
 end
