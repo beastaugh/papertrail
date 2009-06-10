@@ -7,7 +7,9 @@ Rails::Initializer.run do |config|
   config.time_zone = 'London'
   
   # Require RDiscount for Markdown formatting
-  config.gem 'rdiscount'
+  config.gem 'rtomayko-rdiscount',
+    :lib => 'rdiscount',
+    :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate',
     :lib => 'will_paginate',
     :source => 'http://gems.github.com'
