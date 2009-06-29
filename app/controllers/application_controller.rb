@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging "password"  
   helper_method :admin?
   after_filter :set_content_type
-    
+  
   protected
   
   def authorise
@@ -13,11 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def admin?
-    if APP_CONFIG['perform_authentication']
-      session[:password] == APP_CONFIG["password"]
-    else
-      true
-    end
+    request.ssl? || !APP_CONFIG['perform_authentication']
   end
   
   def maybe_raise_404(resource)
