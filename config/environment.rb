@@ -13,6 +13,9 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate',
     :lib => 'will_paginate',
     :source => 'http://gems.github.com'
+  config.gem 'ionfish-urlify',
+    :lib => 'urlify',
+    :source => 'http://gems.github.com'
   
   config.action_controller.session = {
     :session_key => "_papertrail_session",

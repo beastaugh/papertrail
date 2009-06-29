@@ -1,5 +1,3 @@
-require 'urlify'
-
 class Author < ActiveRecord::Base
   attr_accessible :name, :note
   has_many :authorships
@@ -28,7 +26,7 @@ class Author < ActiveRecord::Base
   # Generates permalinks from the author's name.
   def generate_permalink
     unless name.blank?
-      self.permalink = name.urlify
+      self.permalink = URLify.urlify(name)
     end
   end
 end

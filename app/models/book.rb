@@ -1,5 +1,3 @@
-require 'urlify'
-
 class Book < ActiveRecord::Base
   attr_accessible :title, :comment, :cover_url, :isbn, :author_names
   has_many :authorships
@@ -58,7 +56,7 @@ class Book < ActiveRecord::Base
   # Generates permalinks from the book's name.
   def generate_permalink
     unless title.blank?
-      self.permalink = title.urlify
+      self.permalink = URLify.urlify(title)
     end
   end
 end
