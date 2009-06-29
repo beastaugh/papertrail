@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   
   def admin?
     auth = APP_CONFIG['perform_authentication']
-    request.ssl? || auth.nil? ? false : !auth
+    request.ssl? || (auth.nil? ? false : !auth)
   end
   
   def maybe_raise_404(resource)
