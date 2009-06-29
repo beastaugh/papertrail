@@ -1,29 +1,39 @@
 Paper Trail
 ===========
 
-
-Paper Trail is a single-user publishing tool for book reviews. It's written in [Ruby on Rails](http://rubyonrails.org/); content should be formatted using [Markdown](http://daringfireball.net/projects/markdown/). Paper Trail is written by [Benedict Eastaugh](http://extralogical.net/) and licensed under the GPL.
+Paper Trail is a single-user publishing tool for book reviews. It's written in
+[Ruby on Rails][1]; content should be formatted using [Markdown][2]. Paper
+Trail is written by [Benedict Eastaugh][3] and licensed under the GPL.
 
 
 Dependencies
 ------------
 
-Paper Trail is compatible with Rails 2.3. As well as the usual Rails dependencies, Paper Trail requires the following Gems:
+Paper Trail is compatible with Rails 2.3. As well as the usual Rails
+dependencies, Paper Trail requires the following Gems:
 
-* [RDiscount](http://github.com/rtomayko/rdiscount/) is a Ruby wrapper around a C implementation of [Markdown](http://daringfireball.net/projects/markdown/) and [SmartyPants](http://daringfireball.net/projects/smartypants/).
-* [`will_paginate`](http://github.com/mislav/will_paginate/)
+* [RDiscount][4], a Ruby wrapper around a C implementation of [Markdown][3]
+  and [SmartyPants][5].
+* [`will_paginate`][6]
+* [URLify][7]
 
 
 Configuration
 -------------
 
-Like all Rails applications, Paper Trail needs a [database.yml](http://wiki.rubyonrails.org/rails/pages/database.yml) file with the relevant configuration details to be added to the config/ directory. In addition to this, an environment-specific configuration file named papertrail.yml can be added to the config/ directory to add some simple customisations to the application. Here's a sample configuration block for a development environment.
+Like all Rails applications, Paper Trail needs a [database.yml][8] file with
+the relevant configuration details to be added to the `config` directory. In
+addition to this, an environment-specific configuration file named
+`papertrail.yml` can be added to the `config` directory to add some simple
+customisations to the application. Here's a sample configuration block for a
+development environment.
 
     development:
       title: Books on Extralogical
       author: Benedict Eastaugh
       blurb: |
-              This piece of text will be formatted with Markdown and displayed at the bottom of every page on the site.
+              This piece of text will be formatted with Markdown and displayed
+              at the bottom of every page on the site.
       perform_authentication: true
       password: J9BtR68NEq75yM24
 
@@ -31,4 +41,18 @@ Like all Rails applications, Paper Trail needs a [database.yml](http://wiki.ruby
 Licence
 -------
 
-Paper Trail is free software, released under the GNU General Public License Version 2. Please refer to the LICENSE file that should have been distributed with this software for details. If you have not received a copy of the license, you can [get a copy](http://www.fsf.org/licensing/licenses/info/GPLv2.html) from the Free Software Foundation.
+Paper Trail is free software, released under the GNU General Public License
+Version 2. Please refer to the LICENSE file that should have been distributed
+with this software for details. If you have not received a copy of the license,
+you can [get a copy][9] from the Free Software Foundation.
+
+
+[1]:http://rubyonrails.org/
+[2]:http://daringfireball.net/projects/markdown/
+[3]:http://extralogical.net/
+[4]:http://github.com/rtomayko/rdiscount/
+[5]:http://daringfireball.net/projects/smartypants/
+[6]:http://github.com/mislav/will_paginate/
+[7]:http://github.com/ionfish/urlify/
+[8]:http://wiki.rubyonrails.org/rails/pages/database.yml
+[9]:http://www.fsf.org/licensing/licenses/info/GPLv2.html
