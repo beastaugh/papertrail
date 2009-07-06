@@ -1,31 +1,31 @@
 <!DOCTYPE HTML>
-<html>
-<head>
+<html><head>
 	<title><%= yield(:title) || sitetitle %></title>
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
-	<%= javascript_include_tag("jquery-1.3.2.min.js", "edit.js", "application.js") %>
 	
 	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
-	<%= headcontent %>
 	
-</head><body><div id="wrapper">
-	
-	<div id="header">
-		<%= sitename_tag %>
-		<%= navbar %>
-	</div>
-	
-	<%- flash.each do |key, msg| -%>
-		<%= content_tag :p, msg, :class => key %>
-	<%- end -%>
-	
-	<div id="content" class="clear">
-		<%= yield :layout %>
-	</div>
-	
-	<div id="footer">
-	  <%= blurb %>
-	</div>
-	
-</div></body></html>
+</head><body>
+  <div id="wrapper">
+  	<div id="header">
+  		<%= sitename_tag %>
+  		<%= navbar %>
+  	</div>
+	  
+  	<%- flash.each do |key, msg| -%>
+  		<%= content_tag :p, msg, :class => key %>
+  	<%- end -%>
+	  
+  	<div id="content" class="clear">
+  		<%= yield :layout %>
+  	</div>
+	  
+  	<div id="footer">
+  	  <%= blurb %>
+  	</div>
+  </div>
+  
+  <%= javascript_include_tag("jquery-1.3.2.min.js", "edit.js", "application.js") %>
+  <%= headcontent %>
+</body></html>
