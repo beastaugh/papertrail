@@ -6,6 +6,9 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  map.connect "books/page/:page", :controller => "books", :action => "index"
+  map.connect "authors/page/:page", :controller => "authors", :action => "index"
+  
   map.controller_actions 'books', %w[all covers]
   map.resources :books, :authors
   

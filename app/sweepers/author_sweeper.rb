@@ -17,10 +17,15 @@ class AuthorSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache(author)
+    # Expire cached index and show fragments
+    expire_fragment %r{/authors/page/\d+}
+    expire_fragment :controller => "authors", :action => "show"
+    
     # Expire XML and Atom feed caches
     expire_page "/authors.xml"
     expire_page "/authors/#{author.permalink}.xml"
     
+    # Expire book pages that may list the author
     expire_page "/books.atom"
     expire_page "/books.xml"
     author.books.each do |book|

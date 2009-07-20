@@ -17,13 +17,19 @@ class BookSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache(book)
+    # Expire cached index and show fragments
+    expire_fragment %r{/books/page/\d+}
+    expire_fragment :controller => "books", :action => "show"
+    
     # Expire XML and Atom feed caches
     expire_page "/books.atom"
     expire_page "/books.xml"
     expire_page "/books/#{book.permalink}.xml"
     
+    # Expire frequency graph
     expire_page "/graphs/frequency.svg"
     
+    # Expire author pages that may list the book
     expire_page "/authors.xml"
     book.authors.each do |author|
       expire_page "/authors/#{author.permalink}.xml"

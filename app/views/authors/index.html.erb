@@ -1,6 +1,9 @@
 <%- title "Authors" -%>
-<h1><%= yield :title %></h1>
 
-<%= render @authors %>
+<% cache "/authors/#{params[:page] || 1}" do %>
+  <h1><%= yield :title %></h1>
 
-<%= page_turner @authors %>
+  <%= render @authors %>
+
+  <%= page_turner @authors %>
+<% end %>

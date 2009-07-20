@@ -1,3 +1,5 @@
-<%= render @books %>
-
-<%= page_turner @books %>
+<% cache "/books/page/#{params[:page] || 1}" do %>
+  <%= render @books %>
+  
+  <%= page_turner @books %>
+<% end %>
