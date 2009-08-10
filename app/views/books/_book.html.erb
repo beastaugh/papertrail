@@ -1,9 +1,7 @@
-<% cache "/books/#{book.permalink}" do %>
-  <% editable_content_wrapper :type => "book" do %>
-  	<h2 class="title"><%= book_page_link(book) %></h2>
+<% book_wrapper("#{book.permalink}.item") do %>
+	<h2 class="title"><%= book_page_link(book) %></h2>
 
-  	<p class="about clear"><%= edit_link(book) %> By <%= author_pages_link(book.authors) %>, finished <%= h(nice_date(book.created_at)) %></p>
+	<p class="about clear"><%= edit_link(book) %> By <%= author_pages_link(book.authors) %>, finished <%= h(nice_date(book.created_at)) %></p>
 
-  	<%= content_tag :div, smartdown(book.comment), :class => "comment" unless book.comment.blank? %>
-  <% end %>
+	<%= content_tag :div, smartdown(book.comment), :class => "comment" unless book.comment.blank? %>
 <% end %>

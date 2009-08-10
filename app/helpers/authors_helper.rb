@@ -6,4 +6,13 @@ module AuthorsHelper
         {:class => "edit button"})
 		end
 	end
+	
+	def author_wrapper(cache_path, &block)
+    opts = {
+      :cache => "authors/#{cache_path}",
+      :type => "author"
+    }
+    
+    editable_content_wrapper(opts, &block)
+  end
 end

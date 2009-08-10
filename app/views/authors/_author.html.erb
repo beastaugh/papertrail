@@ -1,4 +1,4 @@
-<% cache "/authors/#{author.permalink}" do %>
+<% author_wrapper("#{author.permalink}.item") do %>
   <div class="author">
   <% unless author.books.blank? %>
     <h2 class="title"><%= author_page_link(author) %>&#8217;s books</h2>

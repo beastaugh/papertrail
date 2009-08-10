@@ -76,8 +76,19 @@ module ApplicationHelper
   end
   
   def editable_content_wrapper(options = {}, &block)
-    yield and return if request.xhr?
-    block_to_partial('shared/editable_wrapper', options, &block)
+    if !admin? && options[:cache]
+      output = Proc.new {
+        cache(options[:cache] + (request.xhr? ? '_xhr' : ''), &block)
+      }
+    else
+      output = block
+    end
+    
+    if request.xhr?
+      output.call
+    else
+      block_to_partial('shared/editable_wrapper', options, &output)
+    end
   end
   
   def book_page_link(book, link_options = {})

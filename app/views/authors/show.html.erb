@@ -1,5 +1,5 @@
-<%- title sanitize(@author.name) -%>
-<% editable_content_wrapper :type => "author" do %>
+<% author_wrapper("#{@author.permalink}.page") do %>
+  <%- title sanitize(@author.name) -%>
 	<%= edit_link(@author) %>
 	
 	<h1 class="title"><%= yield :title %></h1>
