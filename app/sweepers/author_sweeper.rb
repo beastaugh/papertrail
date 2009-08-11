@@ -18,7 +18,6 @@ class AuthorSweeper < ActionController::Caching::Sweeper
   
   def expire_cache(author)
     # Expire cached index and show fragments
-    expire_fragment %r{authors/page/\d+}
     expire_fragment %r{authors/#{author.permalink}(\.(page|item))?(_xhr)?}
     
     # Expire XML and Atom feed caches

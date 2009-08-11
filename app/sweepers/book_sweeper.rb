@@ -18,7 +18,6 @@ class BookSweeper < ActionController::Caching::Sweeper
   
   def expire_cache(book)
     # Expire cached index and show fragments
-    expire_fragment %r{books/page/\d+}
     expire_fragment %r{books/#{book.permalink}(\.(page|item))?(_xhr)?}
     
     # Expire XML and Atom feed caches
