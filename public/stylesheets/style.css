@@ -77,9 +77,12 @@ a:hover { color: #d93600; text-decoration: underline; }
 .page-turner a.prev_page:hover { background-position: 0 7px; }
 .page-turner a.next_page:hover { background-position: 100% -293px; }
 
-/* Graphs
+/* Graphs & tables
 ------------------------------*/
-.graph object, .graph img { display: block; }
+table { width: 100%; margin: 1em 0; border-width: 1px 0 0 1px; }
+table, table td { border-style: solid; border-color: #212426; }
+table td { margin: 0; border-width: 0 1px 1px 0; padding: 0.5em; text-align: center; }
+table td[scope=row] { text-align: left; }
 
 /* Notices
 ------------------------------*/

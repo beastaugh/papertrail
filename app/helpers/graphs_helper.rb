@@ -3,7 +3,7 @@ module GraphsHelper
   def books_per_month_table(months)
     html = Builder::XmlMarkup.new
     
-    html.table do
+    html.table :cellspacing => 0 do
       html.tr do
         html.td "Month", :scope => "row"
         
