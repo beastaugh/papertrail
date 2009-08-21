@@ -1,9 +1,8 @@
-<%- lang 'xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"' -%>
 <%- title "Frequency" -%>
 <h1><%= yield :title %></h1>
 
 <p>Below is a graph of reading frequency over the last year.</p>
 
-<div class="graph" id="frequency_graph">
-  <object data="/graphs/frequency.svg" type="image/svg+xml" width="520"></object>
+<div class="histogram">
+  <%= books_per_month_table(@last_year) %>
 </div>
