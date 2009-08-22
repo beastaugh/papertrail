@@ -2,7 +2,8 @@ jQuery.delegate = function(rules, scope) {
   return function(e) {
     var target = jQuery(e.target);
     for (var selector in rules)
-      if (target.is(selector)) return rules[selector].apply(scope || this, jQuery.makeArray(arguments));
+      if (target.is(selector))
+        return rules[selector].apply(scope || this, jQuery.makeArray(arguments));
   };
 };
 
