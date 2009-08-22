@@ -4,19 +4,21 @@ module GraphsHelper
     html = Builder::XmlMarkup.new
     
     html.table :cellspacing => 0 do
-      html.tr do
-        html.td "Month", :scope => "row"
+      html.tbody do
+        html.tr do
+          html.td "Month", :scope => "row"
         
-        months.each do |month|
-          html.td month[:name], :class => "month"
+          months.each do |month|
+            html.td month[:name], :class => "month"
+          end
         end
-      end
       
-      html.tr do
-        html.td "Number of books", :scope => "row"
+        html.tr do
+          html.td "Number of books", :scope => "row"
         
-        months.each do |month|
-          html.td month[:num_books], :class => "num_books"
+          months.each do |month|
+            html.td month[:num_books], :class => "num_books"
+          end
         end
       end
     end
