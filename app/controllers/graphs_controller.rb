@@ -5,6 +5,8 @@ class GraphsController < ApplicationController
   end
   
   def frequency
+    return if fragment_exist? "graphs/frequency"
+    
     @books = Book.find :all, :conditions => ["created_at > ?", 1.year.ago]
     
     @last_year = @books.inject([]) do |distribution, book|

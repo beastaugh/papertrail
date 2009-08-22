@@ -24,6 +24,9 @@ class AuthorSweeper < ActionController::Caching::Sweeper
     expire_page "/authors.xml"
     expire_page "/authors/#{author.permalink}.xml"
     
+    # Expire reading frequency table
+    expire_fragment "graphs/frequency"
+    
     # Expire book pages that may list the author
     expire_page "/books.atom"
     expire_page "/books.xml"
