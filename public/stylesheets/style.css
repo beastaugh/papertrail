@@ -79,6 +79,8 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Graphs & tables
 ------------------------------*/
+.histogram { margin: 3em 0 1em 0; padding-bottom: 1.5em; position: relative; }
+.histogram .key { display: block; position: absolute; text-align: center; font-size: 0.9em; color: #5c6166;}
 table { width: 100%; margin: 1em 0; border-width: 1px 0 0 1px; }
 table, table td { border-style: solid; border-color: #212426; }
 table td { margin: 0; border-width: 0 1px 1px 0; padding: 0.5em; text-align: center; }

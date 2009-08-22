@@ -1,7 +1,7 @@
 <%- title "Frequency" -%>
 <h1><%= yield :title %></h1>
 
-<p>Below is a graph of reading frequency over the last year.</p>
+<p>Below is a graph of reading frequency over the last year. Each bar represents one book.</p>
 
 <div class="histogram">
   <%= books_per_month_table(@last_year) %>
