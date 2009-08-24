@@ -32,12 +32,12 @@ var maximum = function(values) {
 };
 
 var HistogramFromTable = function(wrapper) {
-  this.X       = 40;
+  this.X       = 36;
   this.Y       = 20;
   this.GUTTER  = 2;
   this.TOP     = 27;
   this.BOTTOM  = 4;
-  this.SIDE    = 9;
+  this.SIDE    = 12;
   
   this.table   = jQuery(wrapper).find('table').eq(0).hide();
   var rows     = this.table.find('tr');
