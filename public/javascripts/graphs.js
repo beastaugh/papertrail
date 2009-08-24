@@ -18,15 +18,6 @@ var getContents = function(el) {
   return el.innerHTML;
 };
 
-var zip = function(fst, snd) {
-  var zipped = [];
-  
-  for (i = 0; i < fst.length; i++)
-    zipped[i] = [fst[i], snd[i]];
-  
-  return zipped;
-};
-
 var maximum = function(values) {
   return values.reduce(function(m, n) { return Math.max(n, m); }, 0);
 };
