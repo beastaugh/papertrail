@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
                       :allow_blank => true,
                       :message => "must be a URL for a GIF, JPEG or PNG image."
   validates_format_of :permalink,
-                      :with => %r{\A[a-z\d][a-z\d\_\-]*[a-z\d]\z}
+                      :with => /^[\w-]+$/
   validates_format_of :isbn,
                       :with => /^(\d{13}|\d{10})?$/,
                       :message => "must be a valid ISBN with 10 or 13 digits."
