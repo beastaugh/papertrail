@@ -70,7 +70,7 @@ var HistogramFromTable = function(wrapper) {
     this.context.fillStyle = '#212426';
     for (i = 1; i < size; i++) {
       this.context.fillRect(order * (this.X + this.GUTTER) + this.SIDE,
-        offset + i * this.Y, this.X, 1);
+        offset + i * this.Y - 1, this.X, 1);
     }
   };
   
