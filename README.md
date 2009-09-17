@@ -16,6 +16,7 @@ dependencies, Paper Trail requires the following Gems:
   and [SmartyPants][5].
 * [`will_paginate`][6]
 * [URLify][7]
+* [Jake][10]
 
 
 Configuration
@@ -47,12 +48,13 @@ with this software for details. If you have not received a copy of the license,
 you can [get a copy][9] from the Free Software Foundation.
 
 
-[1]:http://rubyonrails.org/
-[2]:http://daringfireball.net/projects/markdown/
-[3]:http://extralogical.net/
-[4]:http://github.com/rtomayko/rdiscount/
-[5]:http://daringfireball.net/projects/smartypants/
-[6]:http://github.com/mislav/will_paginate/
-[7]:http://github.com/ionfish/urlify/
-[8]:http://wiki.rubyonrails.org/rails/pages/database.yml
-[9]:http://www.fsf.org/licensing/licenses/info/GPLv2.html
+[1]:  http://rubyonrails.org/
+[2]:  http://daringfireball.net/projects/markdown/
+[3]:  http://extralogical.net/
+[4]:  http://github.com/rtomayko/rdiscount/
+[5]:  http://daringfireball.net/projects/smartypants/
+[6]:  http://github.com/mislav/will_paginate/
+[7]:  http://github.com/ionfish/urlify/
+[8]:  http://wiki.rubyonrails.org/rails/pages/database.yml
+[9]:  http://www.fsf.org/licensing/licenses/info/GPLv2.html
+[10]: http://github.com/jcoglan/jake/

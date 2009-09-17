@@ -1,0 +1,17 @@
+---
+source_directory: ../public/javascripts
+build_directory:  ../public/javascripts/live
+
+layout: together
+
+builds:
+  min:
+    shrink_vars: true
+    private:     true
+    suffix:      true
+
+packages:
+  app:
+    - edit
+    - graphs
+    - application
