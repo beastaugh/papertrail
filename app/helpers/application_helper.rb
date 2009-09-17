@@ -27,9 +27,9 @@ module ApplicationHelper
   
   def application_javascript
     if RAILS_ENV == "production"
-      javascript_include_tag("jquery-1.3.2.min.js", "edit.js", "graphs.js", "application.js")
-    else
       javascript_include_tag("jquery-1.3.2.min.js", "live/app-min.js")
+    else
+      javascript_include_tag("jquery-1.3.2.min.js", "edit.js", "graphs.js", "application.js")
     end
   end
   
