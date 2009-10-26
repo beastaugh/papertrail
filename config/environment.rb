@@ -7,15 +7,15 @@ Rails::Initializer.run do |config|
   config.time_zone = 'London'
   
   # Require RDiscount for Markdown formatting
-  config.gem 'rtomayko-rdiscount',
+  config.gem 'rdiscount',
     :lib => 'rdiscount',
-    :source => 'http://gems.github.com'
-  config.gem 'mislav-will_paginate',
+    :source => 'http://gemcutter.org'
+  config.gem 'will_paginate',
     :lib => 'will_paginate',
-    :source => 'http://gems.github.com'
-  config.gem 'ionfish-urlify',
+    :source => 'http://gemcutter.org'
+  config.gem 'urlify',
     :lib => 'urlify',
-    :source => 'http://gems.github.com'
+    :source => 'http://gemcutter.org'
   
   config.action_controller.session = {
     :session_key => "_papertrail_session",
