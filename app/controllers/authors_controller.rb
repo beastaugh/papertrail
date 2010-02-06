@@ -21,8 +21,8 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.find_by_permalink(params[:id])
-    @title  = @author.name
     maybe_raise_404(@author)
+    @title  = @author.name
     respond_to_defaults(@author, API_ATTRS)
   end
   
@@ -41,14 +41,15 @@ class AuthorsController < ApplicationController
 
   def edit
     @title  = "Edit author"
-    @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
+    @author = Author.find_by_permalink(params[:id])
     render :layout => false if request.xhr?
   end
 
   def update
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
+    
     render :action => "edit" and return unless @author.update_attributes(params[:author])
     
     if request.xhr?
