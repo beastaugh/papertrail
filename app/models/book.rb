@@ -5,7 +5,7 @@ class Book < ActiveRecord::Base
   before_validation :generate_permalink, :clean_isbn
   
   validates_presence_of   :title, :permalink, :authors
-  validates_uniqueness_of :title, :permalink, :isbn
+  validates_uniqueness_of :title, :permalink
   
   validates_format_of     :cover_url,
                           :with => %r{\.(gif|jpg|png)$}i,
