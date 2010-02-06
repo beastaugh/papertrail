@@ -108,7 +108,7 @@ module ApplicationHelper
   def author_pages_link(authors)
     authors.map { |author|
       link_to sanitize(author.name), author_path(author)
-    }.literate_join
+    }.literate_join.html_safe
   end
 
   def page_turner(target, options = {})
