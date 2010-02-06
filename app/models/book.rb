@@ -25,6 +25,16 @@ class Book < ActiveRecord::Base
       paginate(:per_page => per_page, :page => page)
   end
   
+  def self.list_covers(page, per_page)
+    where("cover_url <> ''").
+      order("title ASC").
+      paginate(:per_page => per_page, :page => page)
+  end
+
+  def self.last_year
+    since(1.year.ago)
+  end
+
   def author_names
     authors.map {|a| a.name}.join(", ") if authors
   end

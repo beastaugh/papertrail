@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html><head>
-	<title><%= yield(:title) || sitetitle %></title>
+	<title><%= @title || sitetitle %></title>
 	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
 	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
 	
