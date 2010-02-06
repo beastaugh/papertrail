@@ -4,7 +4,7 @@ class AuthorsController < ApplicationController
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
-  caches_page :index, :show, :if => Proc.new { |c| f = c.request.format; f.xml? || f.atom? }
+  caches_page :index, :show, :if => Proc.new { |c| c.request.format.atom? }
   cache_sweeper :author_sweeper, :only => [:create, :update, :destroy]
   
   API_ATTRS = {:except => :id,
@@ -12,14 +12,6 @@ class AuthorsController < ApplicationController
   
   def index
     respond_to do |f|
-      f.js { @authors = Author.find(:all,
-        :conditions => ['name LIKE ?', "%#{params[:search]}%"]) }
-      
-      f.xml do
-        @authors = Author.find(:all)
-        render :xml => @authors.to_xml(API_ATTRS)
-      end
-      
       f.html do
         @authors = Author.list_authors(params[:page], 20)
       end

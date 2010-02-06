@@ -7,7 +7,7 @@ class GraphsController < ApplicationController
   def frequency
     return if fragment_exist? "graphs/frequency"
     
-    @books = Book.find :all, :conditions => ["created_at > ?", 1.year.ago]
+    @books = Book.where :created_at => ["> ?", 1.year.ago]
     
     @last_year = @books.inject([]) do |distribution, book|
       name = Time::RFC2822_MONTH_NAME[book.created_at.month - 1]

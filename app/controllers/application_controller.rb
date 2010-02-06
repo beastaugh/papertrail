@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  filter_parameter_logging "password"  
+  filter_parameter_logging "password"
+  protect_from_forgery
   helper_method :admin?
   after_filter :set_content_type
   
