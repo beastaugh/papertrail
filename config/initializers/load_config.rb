@@ -1,13 +1,12 @@
-APP_CONFIG_FILE = "#{RAILS_ROOT}/config/papertrail.yml"
+APP_CONFIG_FILE = Rails.root.join("config", "papertrail.yml")
 
 if File.exists?(APP_CONFIG_FILE)
-  APP_CONFIG = YAML::load(File.open(APP_CONFIG_FILE))[RAILS_ENV]
+  APP_CONFIG = YAML::load(File.open(APP_CONFIG_FILE))[Rails.env]
 else
   APP_CONFIG = {
     "title" => "Books",
     "author" => "Paper Trail",
     "blurb" => "",
-    "perform_authentication" => true,
-    "password" => "0123456789",
+    "perform_authentication" => true
   }
 end
