@@ -21,6 +21,8 @@ class Book < ActiveRecord::Base
   
   scope :since, lambda {|time| {:conditions => ["created_at > ?", time] }}
   
+  after_save :save_authorship_ordering
+  
   def self.list_books(page, per_page)
     includes(:authorships => :author).
       order("created_at DESC").
@@ -48,7 +50,7 @@ class Book < ActiveRecord::Base
     end
   end
   
-  def after_save
+  def save_authorship_ordering
     self.authorships.each do |authorship|
       author = self.authors.select {|a| a.id == authorship.author_id }.first
       authorship.weight = @author_names.index(author.name) || 0
