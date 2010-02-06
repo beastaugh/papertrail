@@ -1,31 +1,32 @@
 <!DOCTYPE HTML>
 <html><head>
-	<title><%= @title || sitetitle %></title>
-	<%= stylesheet_link_tag "style", :media => "screen,projection" %>
-	<%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
-	
-	<meta name="author" content="<%= APP_CONFIG['author'] %>" />
-	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><%= @title || sitetitle %></title>
+    
+    <%= stylesheet_link_tag "style", :media => "screen,projection" %>
+    <%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
+    
+    <meta name="author" content="<%= APP_CONFIG['author'] %>">
 </head><body>
-  <div id="wrapper">
-  	<div id="header">
-  		<%= sitename_tag %>
-  		<%= navbar %>
-  	</div>
-	  
-  	<%- flash.each do |key, msg| -%>
-  		<%= content_tag :p, msg, :class => key %>
-  	<%- end -%>
-	  
-  	<div id="content" class="clear">
-  		<%= yield :layout %>
-  	</div>
-	  
-  	<div id="footer">
-  	  <%= blurb %>
-  	</div>
-  </div>
-  
-  <%= application_javascript %>
-  <%= headcontent %>
+    <div id="wrapper">
+        <div id="header">
+            <%= sitename_tag %>
+            <%= navbar %>
+        </div>
+        
+        <%- flash.each do |key, msg| -%>
+            <%= content_tag :p, msg, :class => key %>
+        <%- end -%>
+        
+        <div id="content" class="clear">
+            <%= yield :layout %>
+        </div>
+        
+        <div id="footer">
+            <%= blurb %>
+        </div>
+    </div>
+    
+    <%= application_javascript %>
+    <%= headcontent %>
 </body></html>

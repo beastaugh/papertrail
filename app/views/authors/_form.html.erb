@@ -1,15 +1,15 @@
 <% form_for @author, :html => {:class => "edit_form"} do |f| %>
-  <%= error_messages_for "author" %>
-  
-  <div class="section block wide large">
-    <%= f.label "Author name" %>
-    <%= f.text_field :name, :class => "text" %>
-  </div>
-  
-  <div class="section block wide">
-    <%= f.label "Notes" %>
-    <%= f.text_area :note, :rows => 8, :class => "text" %>
-  </div>
-  
-  <%= f.submit "Save", :class => "save button" %>
+    <%= error_messages_for "author" %>
+    
+    <div class="section block wide large">
+        <%= f.label "Author name" %>
+        <%= f.text_field :name, :class => "text" %>
+    </div>
+    
+    <div class="section block wide">
+        <%= f.label "Notes" %>
+        <%= f.text_area :note, :rows => 8, :class => "text" %>
+    </div>
+    
+    <%= f.submit "Save", :class => "save button" %>
 <% end %>
