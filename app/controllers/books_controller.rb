@@ -7,11 +7,9 @@ class BooksController < ApplicationController
   # caches_page :index, :show, :if => Proc.new { |c| c.request.format.atom? }
   # cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
-  API_ATTRS = {:except => :id,
-    :include => {:authors => {:except => :id}}}
-  
   def index
     @books = Book.list_books(params[:page], 10)
+    
     respond_to do |f|
       f.html
       f.atom
@@ -25,16 +23,15 @@ class BooksController < ApplicationController
   
   def show
     @book  = Book.find_by_permalink(params[:id])
-    @title = @book.title
     maybe_raise_404(@book)
-    respond_to_defaults(@book, API_ATTRS)
+    @title = @book.title
   end
   
   def new
     @title = "Add book"
     @book  = Book.new
   end
-
+  
   def create
     @book = Book.new(params[:book])
     render :action => "new" and return unless @book.save
@@ -42,14 +39,14 @@ class BooksController < ApplicationController
     flash[:notice] = "Book successfully created."
     redirect_to book_path(@book)
   end
-
+  
   def edit
     @title = "Edit book"
     @book  = Book.find_by_permalink(params[:id])
     maybe_raise_404(@book)
     render :layout => false if request.xhr?
   end
-
+  
   def update
     @book = Book.find_by_permalink(params[:id])
     maybe_raise_404(@book)

@@ -7,23 +7,15 @@ class AuthorsController < ApplicationController
   # caches_page :index, :show, :if => Proc.new { |c| c.request.format.atom? }
   # cache_sweeper :author_sweeper, :only => [:create, :update, :destroy]
   
-  API_ATTRS = {:except => :id,
-    :include => {:books => {:except => :id}}}
-  
   def index
-    respond_to do |f|
-      f.html do
-        @title   = "Authors"
-        @authors = Author.list_authors(params[:page], 20)
-      end
-    end
+    @title   = "Authors"
+    @authors = Author.list_authors(params[:page], 20)
   end
   
   def show
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
     @title  = @author.name
-    respond_to_defaults(@author, API_ATTRS)
   end
   
   def new
