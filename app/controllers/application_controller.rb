@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
   helper_method :admin?
-  after_filter :set_content_type
+  after_filter  :set_content_type
   
   protected
   
