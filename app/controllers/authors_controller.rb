@@ -27,6 +27,7 @@ class AuthorsController < ApplicationController
   end
   
   def new
+    @title  = "Add author"
     @author = Author.new
   end
 
@@ -39,6 +40,7 @@ class AuthorsController < ApplicationController
   end
 
   def edit
+    @title  = "Edit author"
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
     render :layout => false if request.xhr?
