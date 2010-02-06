@@ -26,11 +26,12 @@ module ApplicationHelper
   end
   
   def application_javascript
-    if RAILS_ENV == "production"
-      javascript_include_tag("jquery-1.3.2.min.js", "live/app-min.js")
-    else
-      javascript_include_tag("jquery-1.3.2.min.js", "edit.js", "graphs.js", "application.js")
-    end
+    core  = ["jquery-1.3.2.min.js"]
+    files = core.concat Rails.env.production?
+      ? ["live/app-min.js"]
+      : ["edit.js", "graphs.js", "application.js"]
+    
+    javascript_include_tag(files)
   end
   
   def headcontent
