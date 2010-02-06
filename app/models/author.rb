@@ -7,11 +7,11 @@ class Author < ActiveRecord::Base
   validates_uniqueness_of :name, :permalink
   validates_format_of :permalink,
                       :with => /^[\w-]+$/
-    
+  
   # Lists all authors in the database.
   def self.list_authors(page, per_page, options = {})
     options.merge!({:include => {:authorships => :book}, :order => :name})
-    with_scope :find => options do
+    scope :find => options do
       paginate :per_page => per_page, :page => page
     end
   end
