@@ -27,9 +27,9 @@ module ApplicationHelper
   
   def application_javascript
     core  = ["jquery-1.3.2.min.js"]
-    files = core.concat Rails.env.production?
-      ? ["live/app-min.js"]
-      : ["edit.js", "graphs.js", "application.js"]
+    dev   = ["edit.js", "graphs.js", "application.js"]
+    build = ["live/app-min.js"]
+    files = core.concat Rails.env.production? ? build : dev
     
     javascript_include_tag(files)
   end
@@ -58,17 +58,14 @@ module ApplicationHelper
     
     nav = Builder::XmlMarkup.new :indent => 2
     
-    nav.ul :id => "nav" do
-      navlinks.each do |link|
-        nav.li :id => link[:id] do
-          unless current_page? link[:path]
-            nav.a link[:name], :href => link[:path]
-          else
-            nav.a link[:name], :href => link[:path], :class => "current"
-          end
-        end
-      end
-    end
+    nav.ul(:id => "nav") {
+        navlinks.each {|link|
+          nav.li :id => link[:id] {
+            class_name = current_page?(link[:path]) ? "current" : ""
+            nav.a link[:name], :href => link[:path], :class => class_name
+          }
+        }
+    }.html_safe
   end
   
   def blurb
