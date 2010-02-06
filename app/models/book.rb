@@ -53,7 +53,7 @@ class Book < ActiveRecord::Base
   def save_authorship_ordering
     self.authorships.each do |authorship|
       author = self.authors.select {|a| a.id == authorship.author_id }.first
-      authorship.weight = @author_names.index(author.name) || 0
+      authorship.weight = self.author_names.index(author.name) || 0
       authorship.save
     end
   end
