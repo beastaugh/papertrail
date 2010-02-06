@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
   def index
     respond_to do |f|
       f.html do
+        @title   = "Authors"
         @authors = Author.list_authors(params[:page], 20)
       end
     end

@@ -9,11 +9,10 @@ class Author < ActiveRecord::Base
                       :with => /^[\w-]+$/
   
   # Lists all authors in the database.
-  def self.list_authors(page, per_page, options = {})
-    options.merge!({:include => {:authorships => :book}, :order => :name})
-    scope :find => options do
-      paginate :per_page => per_page, :page => page
-    end
+  def self.list_authors(page, per_page)
+    includes(:authorships => :book).
+      order(:name).
+      paginate(:per_page => per_page, :page => page)
   end
   
   # Enables pretty permalinks
