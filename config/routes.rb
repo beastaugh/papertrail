@@ -7,5 +7,5 @@ Papertrail::Application.routes.draw do
   resources :authors
   match 'graphs' => 'graphs#index'
   match 'graphs/frequency' => 'graphs#frequency'
-  match '/' => 'books#index'
+  root :to => 'books#index'
 end
