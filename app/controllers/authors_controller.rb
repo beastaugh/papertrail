@@ -21,6 +21,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.find_by_permalink(params[:id])
+    @title  = @author.name
     maybe_raise_404(@author)
     respond_to_defaults(@author, API_ATTRS)
   end

@@ -2,7 +2,7 @@
   <%- title sanitize(@author.name) -%>
 	<%= edit_link(@author) %>
 	
-	<h1 class="title"><%= yield :title %></h1>
+	<h1 class="title"><%= @title %></h1>
 	
 	<%= content_tag :div, smartdown(@author.note), :class => "note" unless @author.note.blank? %>
 	
