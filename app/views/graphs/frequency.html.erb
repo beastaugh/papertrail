@@ -1,6 +1,5 @@
 <% cache "graphs/frequency" do %>
-  <%- title "Frequency" -%>
-  <h1><%= yield :title %></h1>
+  <h1><%= @title %></h1>
 
   <div class="histogram">
     <%= books_per_month_table(@last_year) %>

@@ -19,6 +19,8 @@ class Book < ActiveRecord::Base
                           :with => /^(\d{13}|\d{10})?$/,
                           :message => "must be a valid ISBN with 10 or 13 digits."
   
+  scope :since, lambda {|time| {:conditions => ["created_at > ?", time] }}
+  
   def self.list_books(page, per_page)
     includes(:authorships => :author).
       order("created_at DESC").
@@ -30,11 +32,11 @@ class Book < ActiveRecord::Base
       order("title ASC").
       paginate(:per_page => per_page, :page => page)
   end
-
+  
   def self.last_year
     since(1.year.ago)
   end
-
+  
   def author_names
     authors.map {|a| a.name}.join(", ") if authors
   end
