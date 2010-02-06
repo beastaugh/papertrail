@@ -6,4 +6,4 @@ tmp/**/*
 public/*.atom
 public/*.json
 public/*.xml
-
+tmp

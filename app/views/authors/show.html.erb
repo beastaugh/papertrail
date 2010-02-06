@@ -1,5 +1,5 @@
 <% author_wrapper("#{@author.permalink}.page") do %>
-  <%- title sanitize(@author.name) -%>
+  <%- title sanitize(@author.name).force_encoding('utf-8') -%>
 	<%= edit_link(@author) %>
 	
 	<h1 class="title"><%= @title %></h1>
