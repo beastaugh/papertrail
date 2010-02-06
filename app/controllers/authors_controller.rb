@@ -33,8 +33,8 @@ class AuthorsController < ApplicationController
 
   def edit
     @title  = "Edit author"
-    maybe_raise_404(@author)
     @author = Author.find_by_permalink(params[:id])
+    maybe_raise_404(@author)
     render :layout => false if request.xhr?
   end
 
