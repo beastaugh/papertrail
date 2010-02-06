@@ -19,11 +19,10 @@ class Book < ActiveRecord::Base
                           :with => /^(\d{13}|\d{10})?$/,
                           :message => "must be a valid ISBN with 10 or 13 digits."
   
-  def self.list_books(page, per_page, options = {})
-    options.merge!({:include => {:authorships => :author}})
-    scope :find => options do
-      paginate :per_page => per_page, :page => page
-    end
+  def self.list_books(page, per_page)
+    includes(:authorships => :author).
+      order("created_at DESC").
+      paginate(:per_page => per_page, :page => page)
   end
   
   def author_names

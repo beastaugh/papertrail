@@ -7,6 +7,6 @@ gem "mysql-ruby", :require => "mysql"
 
 # Gems used by the application
 gem "rdiscount"
-gem "will_paginate"
+gem "will_paginate", :version => ">= 3.0.pre"
 gem "urlify"
 gem "builder"

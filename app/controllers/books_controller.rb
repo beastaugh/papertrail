@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     :include => {:authors => {:except => :id}}}
   
   def index
-    @books = Book.list_books(params[:page], 10, :order => "created_at DESC")
+    @books = Book.list_books(params[:page], 10)
     respond_to do |f|
       f.html
       f.atom
