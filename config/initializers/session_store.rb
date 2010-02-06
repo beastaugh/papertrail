@@ -6,7 +6,10 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key    => '_papertrail_session',
-  :secret => '64b8a037826981813ef8829d921f69dc78133bb4bb921516da502ecdfceb575cbe2ca132e2658bcb6e8326d413f9c41fdf09413403eeb3d92a171b737bc9ded4'
+  :secret => <<-KEY
+  64b8a037826981813ef8829d921f69dc78133bb4bb921516da502ecdfceb575c
+  be2ca132e2658bcb6e8326d413f9c41fdf09413403eeb3d92a171b737bc9ded4
+KEY
 }
 
 # Use the database for sessions instead of the cookie-based default,
