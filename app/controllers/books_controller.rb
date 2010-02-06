@@ -24,13 +24,15 @@ class BooksController < ApplicationController
   end
   
   def show
-    @book = Book.find_by_permalink(params[:id])
+    @book  = Book.find_by_permalink(params[:id])
+    @title = @book.title
     maybe_raise_404(@book)
     respond_to_defaults(@book, API_ATTRS)
   end
   
   def new
-    @book = Book.new
+    @title = "Add book"
+    @book  = Book.new
   end
 
   def create
@@ -42,7 +44,8 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find_by_permalink(params[:id])
+    @title = "Edit book"
+    @book  = Book.find_by_permalink(params[:id])
     maybe_raise_404(@book)
     render :layout => false if request.xhr?
   end
