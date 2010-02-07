@@ -20,18 +20,15 @@ class AuthorSweeper < ActionController::Caching::Sweeper
     # Expire cached index and show fragments
     expire_fragment %r{authors/#{author.permalink}(\.(page|item))?(_xhr)?}
     
-    # Expire XML and Atom feed caches
-    expire_page "/authors.xml"
-    expire_page "/authors/#{author.permalink}.xml"
-    
     # Expire reading frequency table
     expire_fragment "graphs/frequency"
     
-    # Expire book pages that may list the author
+    # Expire book feeds that might list the author
     expire_page "/books.atom"
-    expire_page "/books.xml"
+    
+    # Expire book fragments that might list the author
     author.books.each do |book|
-      expire_page "/books/#{book.permalink}.xml"
+      expire_fragment %r{books/#{book.permalink}(\.(page|item))?(_xhr)?}
     end
   end
 end
