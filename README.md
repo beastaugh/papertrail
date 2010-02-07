@@ -9,7 +9,7 @@ Trail is written by [Benedict Eastaugh][3] and licensed under the GPL.
 Dependencies
 ------------
 
-Paper Trail is compatible with Rails 2.3. As well as the usual Rails
+Paper Trail is compatible with Rails 3. As well as the usual Rails
 dependencies, Paper Trail requires the following Gems:
 
 * [RDiscount][4], a Ruby wrapper around a C implementation of [Markdown][3]
@@ -36,7 +36,6 @@ development environment.
               This piece of text will be formatted with Markdown and displayed
               at the bottom of every page on the site.
       perform_authentication: true
-      password: J9BtR68NEq75yM24
 
 
 Licence
