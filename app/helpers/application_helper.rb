@@ -2,11 +2,11 @@ require 'literate_join'
 
 module ApplicationHelper
   def markdown(text)
-    text.blank? ? "" : sanitize(Markdown.new(text).to_html)
+    text.blank? ? "" : Markdown.new(text).to_html
   end
   
   def smartdown(text)
-    text.blank? ? "" : sanitize(Markdown.new(text, :smart).to_html)
+    text.blank? ? "" : Markdown.new(text, :smart).to_html
   end
   
   def lang(page_lang)
@@ -19,7 +19,7 @@ module ApplicationHelper
   
   def sitetitle
     unless APP_CONFIG["title"].blank?
-      h(APP_CONFIG["title"])
+      APP_CONFIG["title"]
     else
       "Books"
     end
@@ -98,16 +98,16 @@ module ApplicationHelper
   end
   
   def book_page_link(book, link_options = {})
-    link_to( link_options[:link_name] || sanitize(book.title), book_path(book) )
+    link_to( link_options[:link_name] || book.title, book_path(book) )
   end
   
   def author_page_link(author)
-    link_to sanitize(author.name), author_path(author)
+    link_to author.name, author_path(author)
   end
   
   def author_pages_link(authors)
     authors.map { |author|
-      link_to sanitize(author.name), author_path(author)
+      link_to author.name, author_path(author)
     }.literate_join.html_safe
   end
 
