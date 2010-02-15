@@ -11,18 +11,18 @@ html, body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; f
 /* Elements
 ------------------------------*/
 p { margin: 0 0 0.6em 0; }
-	code { font-family: Courier, monospace; color: #bf4f13; }
+    code { font-family: Courier, monospace; color: #bf4f13; }
 blockquote { padding: 0 2em; color: #999; }
 img { border: none; color: #bf4f13; }
 
 /* Structure
 ------------------------------*/
 #wrapper { max-width: 44em; margin: 0 auto; }
-	#wrapper > * { margin-left: 2em; margin-right: 2em; }
-	#header {}
-		#nav { margin: 0 0 1.5em 0; }
-	#content {}
-	#footer { margin-top: 1em; margin-bottom: 5em; padding-top: 1.5em; }
+    #wrapper > * { margin-left: 2em; margin-right: 2em; }
+    #header {}
+        #nav { margin: 0 0 1.5em 0; }
+    #content {}
+    #footer { margin-top: 1em; margin-bottom: 5em; padding-top: 1.5em; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -47,17 +47,19 @@ a:hover { color: #d93600; text-decoration: underline; }
 /* Entries
 ------------------------------*/
 .book h1, .book h2.title, .author h1, .author h2.title { margin: 0; }
-.book, .author .content { margin-bottom: 1.5em; }
+.book {margin-bottom:2em;}
+.author .content { margin-bottom: 1.5em; }
 
-	.book .about { margin: 0 0 0.8em 0; color: #666; }
-	.book img { border: 1px solid #b3b3b3; }
-	.book a img { border: 1px solid #333; }
-	.book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
-	
-	ul.booklist { margin: 0.5em 0 1em 0; list-style: none; }
-		ul.booklist li { margin: 0 0 0.3em 0; background: url('/images/dot.gif') repeat-x 0 0; padding: 0.5em 0 0 2em; font-size: 1.17em; }
-	
-	.covers a img { margin: 0 1em 1em 0; border: 1px solid #333; padding:9px; background: #202426; }
+    .book .subtitle {margin:0; font-size: 1.2em; font-style: italic; color:#999;}
+    .book .about { margin: 0 0 0.8em 0; color: #666; }
+    .book img { border: 1px solid #b3b3b3; }
+    .book a img { border: 1px solid #333; }
+    .book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
+    
+    ul.booklist { margin: 0.5em 0 1em 0; list-style: none; }
+        ul.booklist li { margin: 0 0 0.3em 0; background: url('/images/dot.gif') repeat-x 0 0; padding: 0.5em 0 0 2em; font-size: 1.17em; }
+    
+    .covers a img { margin: 0 1em 1em 0; border: 1px solid #333; padding:9px; background: #202426; }
 
 .button { display: block; float: right; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; font-size: 1em; cursor: pointer; }
 .edit.button:link, .edit.button:visited, .edit.button:active { color: #303b40; border-width: 0.2em; border-color: #293033; padding: 0.1em 0.3em 0; font-size: 0.8em; text-transform: uppercase; }
@@ -106,36 +108,36 @@ label, select.block, textarea, input.text { width: 95%;}
 
 .login-form, .book-form, .author-form { margin-bottom: 1em; }
 
-	.login-form label { margin: 0 1em 0 0; color: #404040; }
-	.login-form input { width: 48%; }
-	
-	.book-form, .author-form { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
-	
-	.book-form .section, .author-form .section { margin: 0 0 1em 0; }
-	select.datetime { display: inline; }
+    .login-form label { margin: 0 1em 0 0; color: #404040; }
+    .login-form input { width: 48%; }
+    
+    .book-form, .author-form { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
+    
+    .book-form .section, .author-form .section { margin: 0 0 1em 0; }
+    select.datetime { display: inline; }
 
 /* Form errors
 ------------------------------*/
 .errors { margin: 0 0 1em 0; }
 .errors h2 { font-size: 14px; color: #af290f; }
 .errors ul {}
-	.errors li {}
+    .errors li {}
 .fieldWithErrors input { border: 1px solid #ff0000; }
 
 /* Header
 ------------------------------*/
 #header { background: url('/images/header-background.png') repeat-x 34px 0; }
-	#title { margin: 0 0 10px 0; }
-		#title, #title a { display: block; height: 130px; text-indent: -9999em; text-decoration: none; background: url('/images/header.png') no-repeat 0 -130px; }
-		#title a:hover { background-position: 0 0; }
+    #title { margin: 0 0 10px 0; }
+        #title, #title a { display: block; height: 130px; text-indent: -9999em; text-decoration: none; background: url('/images/header.png') no-repeat 0 -130px; }
+        #title a:hover { background-position: 0 0; }
 
 /* Nav
 ------------------------------*/
 ul#nav { list-style: none; }
-	ul#nav li { display: inline; margin: 0 1.5em 0 0; }
-		ul#nav li a { color: #303b40; }
-		ul#nav li a.current { color: #293033; }
-		ul#nav li a:hover, ul#nav li a.current:hover { color: #fff; }
+    ul#nav li { display: inline; margin: 0 1.5em 0 0; }
+        ul#nav li a { color: #303b40; }
+        ul#nav li a.current { color: #293033; }
+        ul#nav li a:hover, ul#nav li a.current:hover { color: #fff; }
 
 /* Footer
 ------------------------------*/

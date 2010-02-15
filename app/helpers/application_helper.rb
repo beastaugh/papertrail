@@ -98,7 +98,7 @@ module ApplicationHelper
   end
   
   def book_page_link(book, link_options = {})
-    link_to( link_options[:link_name] || book.title, book_path(book) )
+    link_to( link_options[:link_name] || book.full_title, book_path(book) )
   end
   
   def author_page_link(author)
