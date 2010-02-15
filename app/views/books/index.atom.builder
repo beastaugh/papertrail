@@ -7,7 +7,7 @@ atom_feed :language => "en-GB", :schema_date => "2008" do |feed|
   
   for book in @books
     feed.entry(book) do |entry|
-      entry.title book.title
+      entry.title book.full_title
       entry.content :type => "xhtml" do |x|
         x << markdown(book.comment)
       end

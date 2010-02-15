@@ -62,6 +62,10 @@ class Book < ActiveRecord::Base
     self.isbn = self.isbn.gsub(/\D/, "")
   end
   
+  def full_title
+    self.title + (self.subtitle.blank? ? "" : ": " + self.subtitle)
+  end
+  
   # Enables pretty permalinks.
   def to_param
     permalink
