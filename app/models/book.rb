@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  attr_accessible :title, :comment, :cover_url, :isbn, :author_names
+  attr_accessible :title, :subtitle, :comment, :cover_url, :isbn, :author_names
   has_many :authorships
   has_many :authors, :through => :authorships, :order => :weight
   before_validation :generate_permalink, :clean_isbn
