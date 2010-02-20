@@ -3,6 +3,10 @@ jQuery(document).ready(function() {
     var editable = new Editable(this);
   });
   
+  jQuery('#new_book').each(function() {
+      var autofill = new AutoFill(this);
+  });
+  
   jQuery('.histogram').each(function() {
     new HistogramFromTable(this);
   });

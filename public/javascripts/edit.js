@@ -130,3 +130,32 @@ var Editable = function(wrapper, config) {
     'form.button-to': this.destroy
   }, this));
 };
+
+AutoFill = function(form) {
+    this._form = jQuery(form);
+    
+    var self = this;
+    
+    this._form.submit(function(ev) {
+        var form   = self._form.serializeArray(),
+            params = jQuery.grep(form, function(item) {
+                return item.name.match(/book\[\w+\]/) && item.value.length > 0;
+            }),
+            json, isbn;
+        
+        if (params.length === 1 && params[0].name === 'book[isbn]') {
+            isbn = params[0].value;
+            
+            jQuery.post('/books/autofill', {isbn: isbn}, function(response, status) {
+                if (status === 'success') {
+                    json = jQuery.parseJSON(response);
+                    jQuery.each(response, function(name, value) {
+                        self._form.find('#book_' + name).attr('value', value);
+                    });
+                }
+            });
+            
+            return false;
+        }
+    });
+};
