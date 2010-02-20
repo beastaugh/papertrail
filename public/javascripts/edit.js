@@ -73,16 +73,43 @@ var Editable = function(wrapper, config) {
     jQuery.post(form.action, jQuery(form).serialize(), callback);
   };
   
+  this.autofill = function(form, isbn) {
+      var self = this, json;
+      jQuery.post('/books/autofill', {isbn: isbn}, function(response, status) {
+          if (status === 'success') {
+              form = jQuery(form);
+              json = jQuery.parseJSON(response);
+              jQuery.each(response, function(name, value) {
+                  form.find('#book_' + name).attr('value', value);
+              });
+          }
+      });
+  };
+  
   this.cancel = function() {
     this.list();
     return false;
   };
   
   this.save = function(e) {
-    var self = this;
-    this.post(e, function(response, status) {
-      if ('success' == status) self.list(response);
+    var self, form, params;
+    
+    self   = this;
+    form   = jQuery(e.target).serializeArray();
+    params = jQuery.grep(form, function(item) {
+        return item.name.match(/book\[\w+\]/) && item.value.length > 0;
     });
+    
+    if (params.length === 1 && jQuery.grep(params, function(item) {
+        return item.name === 'book[isbn]';
+    })) {
+        self.autofill(e.target, params[0].value);
+    } else {
+        self.post(e, function(response, status) {
+          if ('success' == status) self.list(response);
+        });
+    }
+    
     return false;
   };
   

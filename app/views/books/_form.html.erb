@@ -1,6 +1,11 @@
 <% form_for @book, :html => {:class => "edit_form"} do |f| %>
     <%= error_messages_for "book", :id => "book_form_errors", :class => "errors", :message => nil %>
     
+    <div class="section primary narrow">
+        <label for="book_isbn"><abbr title="Intenational Standard Book Number">ISBN</abbr></label>
+        <%= f.text_field :isbn, :class => "text" %>
+    </div>
+    
     <div class="section block wide large">
         <%= f.label :title %>
         <%= f.text_field :title, :class => "text" %>
@@ -21,14 +26,9 @@
         <%= f.text_area :comment, :rows => 8, :class => "text" %>
     </div>
     
-    <div class="section primary narrow">
+    <div class="section block narrow">
         <%= f.label :cover_url, "Cover image" %>
         <%= f.text_field :cover_url, :class => "text" %>
-    </div>
-    
-    <div class="section secondary narrow">
-        <label for="book_isbn"><abbr title="Intenational Standard Book Number">ISBN</abbr></label>
-        <%= f.text_field :isbn, :class => "text" %>
     </div>
     
     <%= f.submit "Save", :class => "save button" %>

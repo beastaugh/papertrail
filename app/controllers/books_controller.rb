@@ -1,19 +1,21 @@
+require 'lib/isbndb'
+
 class BooksController < ApplicationController
   before_filter :authorise, :except => [:index, :all, :covers, :show]
   verify  :method => [:post, :put, :delete],
           :only => [:destroy, :create, :update],
           :redirect_to => { :action => :index }
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
+  
+  respond_to :html, :except => :autofill
+  respond_to :atom, :only   => :index
+  respond_to :json, :only   => :autofill
+  
   # caches_page :index, :show, :if => Proc.new { |c| c.request.format.atom? }
   # cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
   
   def index
     @books = Book.list_books(params[:page], 10)
-    
-    respond_to do |f|
-      f.html
-      f.atom
-    end
   end
   
   def covers
@@ -66,6 +68,15 @@ class BooksController < ApplicationController
     @book.destroy
     flash[:notice] = "Book deleted."
     redirect_to root_path
+  end
+  
+  def autofill
+    begin
+      @book = ISBNdb::Book.get(params[:isbn].gsub(/\D/, ""))
+      render :json => @book.to_json
+    rescue ISBNdb::BookNotFound, ISBNdb::ServiceNotAvailable
+      render :status => 404
+    end
   end
   
   protected

@@ -1,6 +1,9 @@
 Papertrail::Application.routes.draw do
   match 'books/page/:page'   => 'books#index'
+  
   match 'books/covers'       => 'books#covers', :as => :books_covers
+  match 'books/autofill'     => 'books#autofill', :as => :books_autofill
+  
   match 'authors/page/:page' => 'authors#index'
   
   resources :books
