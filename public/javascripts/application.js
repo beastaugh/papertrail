@@ -3,8 +3,8 @@ jQuery(document).ready(function() {
     var editable = new Editable(this);
   });
   
-  jQuery('.histogram').each(function(wrapper) {
-    new HistogramFromTable(wrapper);
+  jQuery('.histogram').each(function() {
+    new HistogramFromTable(this);
   });
   
   setTimeout(function() {

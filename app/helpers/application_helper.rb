@@ -26,7 +26,7 @@ module ApplicationHelper
   end
   
   def application_javascript
-    core  = ["jquery-1.3.2.min.js"]
+    core  = ["jquery-1.4.2.min.js"]
     dev   = ["edit.js", "graphs.js", "application.js"]
     build = ["live/app-min.js"]
     files = core.concat Rails.env.production? ? build : dev

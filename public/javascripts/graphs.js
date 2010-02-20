@@ -23,6 +23,7 @@ var maximum = function(values) {
 };
 
 var HistogramFromTable = function(wrapper) {
+  console.log(wrapper);
   this.X       = 36;
   this.Y       = 20;
   this.GUTTER  = 2;
