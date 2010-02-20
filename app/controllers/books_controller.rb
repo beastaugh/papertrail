@@ -1,4 +1,4 @@
-require 'lib/isbndb'
+require 'isbndb'
 
 class BooksController < ApplicationController
   before_filter :authorise, :except => [:index, :all, :covers, :show]
