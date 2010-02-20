@@ -17,6 +17,9 @@ dependencies, Paper Trail requires the following Gems:
 * [`will_paginate`][6]
 * [URLify][7]
 * [Jake][10]
+* [REST Client][11]
+* [Nokogiri][12]
+* [JSON for Ruby][13]
 
 
 Configuration
@@ -36,6 +39,7 @@ development environment.
               This piece of text will be formatted with Markdown and displayed
               at the bottom of every page on the site.
       perform_authentication: true
+      isbndb_api_key: ABCDEFGH
 
 
 Licence
@@ -57,3 +61,6 @@ you can [get a copy][9] from the Free Software Foundation.
 [8]:  http://wiki.rubyonrails.org/rails/pages/database.yml
 [9]:  http://www.fsf.org/licensing/licenses/info/GPLv2.html
 [10]: http://github.com/jcoglan/jake/
+[11]: http://rdoc.info/projects/archiloque/rest-client
+[12]: http://nokogiri.org/
+[13]: http://flori.github.com/json
