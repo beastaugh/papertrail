@@ -2,11 +2,11 @@ require 'literate_join'
 
 module ApplicationHelper
   def markdown(text)
-    text.blank? ? "" : Markdown.new(text).to_html
+    text.blank? ? "" : Markdown.new(text).to_html.html_safe
   end
   
   def smartdown(text)
-    text.blank? ? "" : Markdown.new(text, :smart).to_html
+    text.blank? ? "" : Markdown.new(text, :smart).to_html.html_safe
   end
   
   def lang(page_lang)
