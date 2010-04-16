@@ -1,4 +1,4 @@
-<% book_wrapper("#{book.permalink}.item") do %>
+<%= book_wrapper("#{book.permalink}.item") do %>
     <h2 class="title"><%= book_page_link(book) %></h2>
     
     <p class="about clear"><%= edit_link(book) %> By <%= author_pages_link(book.authors) %>, finished <%= nice_date(book.created_at) %></p>
