@@ -1,4 +1,4 @@
-Papertrail::Application.routes.draw do
+Config::Application.routes.draw do
   match 'books/page/:page'   => 'books#index'
   
   match 'books/covers'       => 'books#covers', :as => :books_covers

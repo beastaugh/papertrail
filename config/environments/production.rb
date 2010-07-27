@@ -1,4 +1,4 @@
-Papertrail::Application.configure do
+Config::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -39,4 +39,11 @@ Papertrail::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
+  
+  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+  # the I18n.default_locale when a translation can not be found)
+  config.i18n.fallbacks = true
+
+  # Send deprecation notices to registered listeners
+  config.active_support.deprecation = :notify
 end

@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Papertrail::Application.initialize!
+Config::Application.initialize!
