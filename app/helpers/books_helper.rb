@@ -4,10 +4,10 @@ module BooksHelper
       link_to(link_options[:link_name] || "Edit",
         {:action => "edit", :id => book.permalink},
         {:class => "edit button"})
-		end
-	end
-	
-	def nice_date(given_date)
+    end
+  end
+  
+  def nice_date(given_date)
     given_date.strftime("%A %e %B %Y")
   end
   

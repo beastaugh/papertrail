@@ -4,10 +4,10 @@ module AuthorsHelper
       link_to(link_options[:link_name] || "Edit",
         {:action => "edit", :id => author.permalink},
         {:class => "edit button"})
-		end
-	end
-	
-	def author_wrapper(cache_path, &block)
+    end
+  end
+  
+  def author_wrapper(cache_path, &block)
     opts = {
       :cache => "authors/#{cache_path}",
       :type => "author"
