@@ -1,4 +1,5 @@
 .bundle
+Gemfile.lock
 db/*.sqlite3
 log/*.log
 tmp/**/*
@@ -6,4 +7,5 @@ tmp/**/*
 public/*.atom
 public/*.json
 public/*.xml
+public/google*.html
 tmp
