@@ -7,6 +7,8 @@
     <%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
     
     <meta name="author" content="<%= APP_CONFIG['author'] %>">
+    
+    <%= headcontent %>
 </head><body>
     <div id="wrapper">
         <div id="header">
@@ -28,5 +30,4 @@
     </div>
     
     <%= application_javascript %>
-    <%= headcontent %>
 </body></html>
