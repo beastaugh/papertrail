@@ -7,15 +7,15 @@ module GraphsHelper
       html.tbody do
         html.tr do
           html.td "Month", :scope => "row"
-        
+          
           months.each do |month|
             html.td month[:name], :class => "month"
           end
         end
-      
+        
         html.tr do
           html.td "Number of books", :scope => "row"
-        
+          
           months.each do |month|
             html.td month[:num_books], :class => "num_books"
           end
