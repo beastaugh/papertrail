@@ -21,7 +21,7 @@ module ISBNdb
     
     def to_s
       qs = @params.inject("?") do |qs, (k, v)|
-        qs + (qs.length < 2 ? "" : "&") + k + "=" + v
+        qs + (qs.length < 2 ? "" : "&") + k.to_s + "=" + v.to_s
       end
       
       @protocol + "://" + @domain +

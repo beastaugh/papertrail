@@ -74,8 +74,8 @@ class BooksController < ApplicationController
     begin
       @book = ISBNdb::Book.get(params[:isbn].gsub(/\D/, ""))
       render :json => @book.to_json
-    rescue ISBNdb::BookNotFound, ISBNdb::ServiceNotAvailable
-      render :status => 404
+    rescue ISBNdb::BookNotFoundError, ISBNdb::ServiceNotAvailableError
+      render :json => {}, :status => 404
     end
   end
   
