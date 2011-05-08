@@ -22,22 +22,22 @@ class AuthorsController < ApplicationController
     @title  = "Add author"
     @author = Author.new
   end
-
+  
   def create
     @author = Author.new(params[:author])
     render :action => "new" and return unless @author.save
-
+    
     flash[:notice] = "Author successfully added."
     redirect_to author_path(@author)
   end
-
+  
   def edit
     @title  = "Edit author"
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
     render :layout => false if request.xhr?
   end
-
+  
   def update
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
@@ -51,7 +51,7 @@ class AuthorsController < ApplicationController
       flash[:notice] = "Author info updated." and redirect_to author_path(@author)
     end
   end
-
+  
   def destroy
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
