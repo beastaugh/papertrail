@@ -26,12 +26,7 @@ module ApplicationHelper
   end
   
   def application_javascript
-    core  = ["jquery-1.6.min.js"]
-    dev   = ["edit.js", "graphs.js", "application.js"]
-    build = ["live/app-min.js"]
-    files = core.concat Rails.env.production? ? build : dev
-    
-    javascript_include_tag(files)
+    javascript_include_tag ["jquery-1.6.min.js", "edit.js", "graphs.js", "application.js"]
   end
   
   def sitename_tag
