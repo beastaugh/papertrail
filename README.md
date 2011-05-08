@@ -6,15 +6,6 @@ Paper Trail is a single-user publishing tool for book reviews. It's written in
 Trail is written by [Benedict Eastaugh][ben] and licensed under the GPL.
 
 
-Dependencies
-------------
-
-Paper Trail is compatible with Rails 3. As well as the usual Rails
-dependencies, Paper Trail requires the following Gems be installed:
-
-    gem install rdiscount will_paginate urlify jake rest-client nokogiri json
-
-
 Configuration
 -------------
 
