@@ -1,11 +1,18 @@
-<% book_wrapper("#{@book.permalink}.page") do %>
-    <h1 class="title"><%= @title %></h1>
-    
-    <% unless @book.subtitle.blank? %>
-        <p class="subtitle"><%= @book.subtitle %></p>
-    <% end %>
-    
-    <p class="about"><%= edit_link(@book) %> By <%= author_pages_link(@book.authors) %>, finished <%= nice_date(@book.created_at) %></p>
-    
-    <%= content_tag :div, smartdown(@book.comment), :class => "comment" unless @book.comment.blank? %>
-<% end %>
+<div class="editable book">
+    <div class="content">
+        <h1 class="title"><%= @book.title %></h1>
+        
+        <% unless @book.subtitle.blank? %>
+            <p class="subtitle"><%= @book.subtitle %></p>
+        <% end %>
+        
+        <p class="about clear">
+            <%= edit_link(@book) %>
+            By <%= author_pages_link(@book.authors) %>,
+            finished <%= nice_date(@book.created_at) %>
+        </p>
+        
+        <%= content_tag :div, smartdown(@book.comment),
+            :class => "comment" unless @book.comment.blank? %>
+    </div>
+</div>
