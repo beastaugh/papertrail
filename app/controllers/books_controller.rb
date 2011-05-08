@@ -24,8 +24,9 @@ class BooksController < ApplicationController
   end
   
   def show
-    @book = Book.find_by_permalink(params[:id])
+    @book  = Book.find_by_permalink(params[:id])
     maybe_raise_404(@book)
+    @title = @book.title
   end
   
   def new
