@@ -3,8 +3,7 @@ source 'http://rubygems.org'
 gem "rails", "~> 3.0.0"
 
 # ActiveRecord database adapter.
-# gem "mysql-ruby", :require => "mysql"
-gem "mysql"
+gem "pg"
 
 # Gems used by the application
 gem "rdiscount"

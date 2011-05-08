@@ -41,8 +41,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql (2.8.1)
-    nokogiri (1.4.3.1)
+    nokogiri (1.4.4)
+    pg (0.11.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
@@ -66,10 +66,10 @@ GEM
     rdiscount (1.6.8)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    thor (0.14.0)
-    treetop (1.4.8)
+    thor (0.14.6)
+    treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.23)
+    tzinfo (0.3.27)
     urlify (0.2.2)
     will_paginate (3.0.pre2)
 
@@ -80,8 +80,8 @@ DEPENDENCIES
   builder
   dynamic_form
   json
-  mysql
   nokogiri
+  pg
   rails (~> 3.0.0)
   rdiscount
   rest-client
