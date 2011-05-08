@@ -23,9 +23,8 @@ var maximum = function(values) {
 };
 
 var HistogramFromTable = function(wrapper) {
-  console.log(wrapper);
   this.X       = 36;
-  this.Y       = 20;
+  this.Y       = 50;
   this.GUTTER  = 2;
   this.TOP     = 27;
   this.BOTTOM  = 4;
@@ -55,7 +54,7 @@ var HistogramFromTable = function(wrapper) {
     var x = order * (this.X + this.GUTTER) + this.SIDE,
         y = this.Y * size;
     
-    var offset = this.canvas.attr('height') - y - this.BOTTOM;
+    var offset = height - y - this.BOTTOM;
     
     this.context.fillStyle = '#272c2e';
     this.context.fillRect(x, offset, this.X, y);
@@ -63,7 +62,7 @@ var HistogramFromTable = function(wrapper) {
     var label = jQuery('<span class="key">' + this.keys[order] + '</span>');
     label.css({
       width: this.X,
-      top:   this.canvas.attr('height') + 8 - this.BOTTOM,
+      top:   height + 8 - this.BOTTOM,
       left:  x
     });
     this.table.after(label);
@@ -82,7 +81,7 @@ var HistogramFromTable = function(wrapper) {
     self.values.forEach(self.insertBar, self);
     
     self.context.fillStyle = '#2b3033';
-    self.context.fillRect(0, self.canvas.attr('height') + 3 - self.BOTTOM,
+    self.context.fillRect(0, height + 3 - self.BOTTOM,
       self.canvas.attr('width'), 1);
   });
 };
