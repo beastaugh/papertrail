@@ -34,10 +34,6 @@ module ApplicationHelper
     javascript_include_tag(files)
   end
   
-  def headcontent
-    # No additional header content yet!
-  end
-  
   def sitename_tag
     unless sitetitle.blank?
       tag = current_page?(root_path) ? "h1" : "p"      
@@ -89,17 +85,11 @@ module ApplicationHelper
       link_to author.name, author_path(author)
     }.literate_join.html_safe
   end
-
+  
   def page_turner(target, options = {})
     options.merge! :container => true, :page_links => false,
                    :previous_label => "Previous", :next_label => "Next",
                    :class => "page-turner clear"
     will_paginate(target, options)
   end
-end
-
-begin
-  require 'view_extras'
-rescue MissingSourceFile
-  #
 end
