@@ -36,12 +36,21 @@ module ApplicationHelper
     navlinks = [
       { :id => "book-covers", :name => "Covers", :path => books_covers_path },
       { :id => "authors", :name => "Authors", :path => authors_path },
-      { :id => "graphs", :name => "Graphs", :path => "/graphs/frequency" }]
+      { :id => "graphs", :name => "Graphs", :path => "/graphs/frequency" }
+    ]
     
-    adminlinks = [
-      { :id => "new-book", :name => "Add book", :path => new_book_path }]
+    if admin?
+      adminlinks = [
+        { :id => "new-book", :name => "Add book", :path => new_book_path },
+        { :id => "logout", :name => "Log out", :path => logout_path }
+      ]
+    else
+      adminlinks = [
+        { :id => "login", :name => "Log in", :path => login_path }
+      ]
+    end
     
-    navlinks.concat(adminlinks) if admin?
+    navlinks.concat(adminlinks)
     
     nav = Builder::XmlMarkup.new :indent => 2
     
