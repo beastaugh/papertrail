@@ -25,10 +25,6 @@ module ApplicationHelper
     end
   end
   
-  def application_javascript
-    javascript_include_tag ["jquery-1.6.min.js", "edit.js", "graphs.js", "application.js"]
-  end
-  
   def sitename_tag
     unless sitetitle.blank?
       tag = current_page?(root_path) ? "h1" : "p"      

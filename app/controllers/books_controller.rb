@@ -11,9 +11,6 @@ class BooksController < ApplicationController
   respond_to :atom, :only   => :index
   respond_to :json, :only   => :autofill
   
-  # caches_page :index, :show, :if => Proc.new { |c| c.request.format.atom? }
-  # cache_sweeper :book_sweeper, :only => [:create, :update, :destroy]
-  
   def index
     @books = Book.list_books(params[:page], 10)
   end
