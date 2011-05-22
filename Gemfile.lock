@@ -85,6 +85,9 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
     urlify (0.2.2)
+    verification (1.0.2)
+      actionpack (> 3.0.0)
+      activesupport (> 3.0.0)
     will_paginate (2.3.15)
 
 PLATFORMS
@@ -100,4 +103,5 @@ DEPENDENCIES
   rdiscount
   rest-client
   urlify
+  verification
   will_paginate (= 2.3.15)
