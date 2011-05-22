@@ -16,20 +16,16 @@ var Editable = function(wrapper, config) {
   this.links = jQuery(link);
   this.link = this.wrapper.find(link)[0];
   this.view = this.wrapper.children(config.view || '.content');
-  this.view.after('<div class="form" style="display:none;"></div>');
-  this.form = this.view.next();
-  
-  function emify(pixels) {
-    if (typeof pixels == 'number') return (pixels / 13).toString() + 'em';
-  };
+  this.form = jQuery('<div class="form" style="display:none;"></div>');
+  this.view.after(this.form);
   
   this.transition = function(height, operations, scope) {
     var wrapper = this.wrapper;
     var self = this;
     wrapper.children().each(function() {
-      jQuery(this).css({width: emify(wrapper.width())});
+      jQuery(this).css({width: wrapper.width()});
     });
-    wrapper.animate({opacity: 0, height: emify(height)}, function() {
+    wrapper.animate({opacity: 0, height: height}, function() {
       operations.call(scope || null);
       wrapper.animate({opacity: 1});
     });
@@ -52,7 +48,7 @@ var Editable = function(wrapper, config) {
   
   this.list = function(new_content) {
     if (new_content) this.view.html(new_content);
-    this.transition(this.view.height(), function() {
+    this.transition(this.view.innerHeight(), function() {
       this.form.hide().html('');
       this.view.show();
       this.links.fadeIn();

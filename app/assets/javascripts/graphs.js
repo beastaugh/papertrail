@@ -41,6 +41,8 @@ var HistogramFromTable = function(wrapper) {
   var width  = (this.X + this.GUTTER) * this.values.length - this.GUTTER + this.SIDE * 2,
       height = maximum(this.values) * this.Y + this.TOP + this.BOTTOM;
   
+  this.table.parents().first().width(width);
+  
   this.canvas  = jQuery('<canvas width="' + width + '" height="' + height + '"></canvas>');
   this.context = this.canvas[0].getContext('2d');
   

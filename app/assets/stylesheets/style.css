@@ -10,19 +10,19 @@ html, body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; f
 
 /* Elements
 ------------------------------*/
-p { margin: 0 0 0.6em 0; }
+p { margin: 0 0 10px 0; }
     code { font-family: Courier, monospace; color: #bf4f13; }
-blockquote { padding: 0 2em; color: #999; }
+blockquote { padding: 0 25px; color: #999; }
 img { border: none; color: #bf4f13; }
 
 /* Structure
 ------------------------------*/
-#wrapper { max-width: 44em; margin: 0 auto; }
-    #wrapper > * { margin-left: 2em; margin-right: 2em; }
+#wrapper { max-width: 600px; margin: 0 auto; }
+    #wrapper > * { margin-left: 25px; margin-right: 25px; }
     #header {}
-        #nav { margin: 0 0 1.5em 0; }
+        #nav { margin: 0 0 15px 0; }
     #content {}
-    #footer { margin-top: 1em; margin-bottom: 5em; padding-top: 1.5em; }
+    #footer { margin-top: 10px; margin-bottom: 50px; padding-top: 15px; }
 
 .primary { clear: left; float: left; }
 .secondary { clear: right; float: right; }
@@ -32,11 +32,10 @@ img { border: none; color: #bf4f13; }
 
 /* Headers
 ------------------------------*/
-h1, h2, h3, h4 { margin: 0 0 0.2em 0; padding: 0; font-weight: normal; }
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; color: #999; }
-h3 { font-size: 1.17em; }
-h4 { font-size: 1.17em; }
+h1, h2, h3, h4 { margin: 0 0 3px 0; padding: 0; font-weight: normal; }
+h1 { font-size: 24px; }
+h2 { font-size: 18px; color: #999; }
+h3, h4 { font-size: 16px; }
 
 /* Links
 ------------------------------*/
@@ -47,30 +46,30 @@ a:hover { color: #d93600; text-decoration: underline; }
 /* Entries
 ------------------------------*/
 .book h1, .book h2.title, .author h1, .author h2.title { margin: 0; }
-.book {margin-bottom:2em;}
-.author .content { margin-bottom: 1.5em; }
+.book { margin-bottom: 25px; }
+.author .content { margin-bottom: 15px; }
 
-    .book .subtitle {margin:0; font-size: 1.2em; font-style: italic; color:#999;}
-    .book .about { margin: 0 0 0.8em 0; color: #666; }
+    .book .subtitle {margin:0; font-size: 18px; font-style: italic; color:#999;}
+    .book .about { margin: 0 0 10px 0; color: #666; }
     .book img { border: 1px solid #b3b3b3; }
     .book a img { border: 1px solid #333; }
     .book a:hover img, .covers a:hover img { border: 1px solid #d93600; }
     
-    ul.booklist { margin: 0.5em 0 1em 0; list-style: none; }
-        ul.booklist li { margin: 0 0 0.3em 0; background: url('/images/dot.gif') repeat-x 0 0; padding: 0.5em 0 0 2em; font-size: 1.17em; }
+    ul.booklist { margin: 5px 0 10px 0; list-style: none; }
+        ul.booklist li { margin: 0 0 5px 0; background: url('/images/dot.gif') repeat-x 0 0; padding: 6px 0 0 20px; font-size: 16px; }
     
-    .covers a img { margin: 0 1em 1em 0; border: 1px solid #333; padding:9px; background: #202426; }
+    .covers a img { margin: 0 10px 10px 0; border: 1px solid #333; padding:9px; background: #202426; }
 
-.button { display: block; float: right; border-width: 0; border-style: solid; padding: 0.3em 0.6em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; font-size: 1em; cursor: pointer; }
-.edit.button:link, .edit.button:visited, .edit.button:active { color: #303b40; border-width: 0.2em; border-color: #293033; padding: 0.1em 0.3em 0; font-size: 0.8em; text-transform: uppercase; }
+.button { display: block; float: right; border-width: 0; border-style: solid; padding: 4px 8px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-size: 12px; cursor: pointer; }
+.edit.button:link, .edit.button:visited, .edit.button:active { color: #303b40; border-width: 2px; border-color: #293033; padding: 1px 3px 0; font-size: 10px; text-transform: uppercase; }
 .edit.button:hover { color: #fff; border-color: #fff; text-decoration: none; }
 .save.button { float: left; background: #293033; color: #8a9499; }
 .save.button:hover, .cancel.button:hover { background: #a62900; color: #ccc; }
 .delete.button, .cancel.button { background: #212526; color: #303b40; }
 .delete.button:hover { background: #a60e00; color: #ccc; }
 
-.page-turner { margin: 2em 0 1em 0; border-width: 0; border-style: solid; padding: 0.3em 0.9em; -webkit-border-radius: 0.3em; -moz-border-radius: 0.3em; border-radius: 0.3em; background: #1d1e1f; }
-.page-turner .prev_page, .next_page { display: block; padding: 0.2em; background-image: url('/images/page-arrows.png'); background-repeat: no-repeat; }
+.page-turner { margin: 20px 0 10px 0; border-width: 0; border-style: solid; padding: 4px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background: #1d1e1f; }
+.page-turner .prev_page, .next_page { display: block; padding: 3px; background-image: url('/images/page-arrows.png'); background-repeat: no-repeat; }
 .page-turner .prev_page { float: left; padding-left: 12px; background-position: 0 -93px; }
 .page-turner .next_page { float: right; padding-right: 12px; background-position: 100% -393px; }
 .page-turner .disabled { color: #666; }
@@ -81,44 +80,44 @@ a:hover { color: #d93600; text-decoration: underline; }
 
 /* Graphs & tables
 ------------------------------*/
-.histogram { margin: 1em 0; padding-bottom: 1.5em; position: relative; }
-.histogram .key { display: block; position: absolute; text-align: center; font-size: 0.9em; color: #5c6166;}
-table { width: 100%; margin: 1em 0; border-width: 1px 0 0 1px; }
+.histogram { margin: 10px auto; padding-bottom: 15px; position: relative; }
+.histogram .key { display: block; position: absolute; text-align: center; font-size: 10px; color: #5c6166;}
+table { width: 100%; margin: 10px 0; border-width: 1px 0 0 1px; }
 table, table td { border-style: solid; border-color: #212426; }
-table td { margin: 0; border-width: 0 1px 1px 0; padding: 0.5em; text-align: center; }
+table td { margin: 0; border-width: 0 1px 1px 0; padding: 5px; text-align: center; }
 table td[scope=row] { text-align: left; }
 
 /* Notices
 ------------------------------*/
-.error, .notice, .alert { margin: 1em -1em 2em -1em; padding: 0.5em 1em; color: #fff; }
+.error, .notice, .alert { margin: 10px -10px 20px -10px; padding: 5px 10px; color: #fff; }
 .error, .alert { background: #af290f; }
 .notice { background: #4d9f1b; }
 
 /* Forms
 ------------------------------*/
-label { margin: 0 0 0.4em 1px; display:block; color: #999; }
+label { margin: 0 0 5px 1px; display:block; color: #999; }
 input, textarea { outline: none; }
 .text { border: 1px inset #333; padding: 5px; line-height: 1.5; color: #ccc; background: #1a1a1a; }
 .text:focus { border-color: #d93600; color: #fff; background: #000; }
-textarea.text {max-width:99%;}
+textarea.text { max-width: 99%; }
 label, select.block, textarea, input.text { width: 95%;}
 .wide label, .wide select.block, .wide textarea, .wide input.text { width: 98.5%;}
-.large .text {font-size:1.5em;}
-#submit, #delete { margin: 1em 0; }
+.large .text {font-size: 16px; }
+#submit, #delete { margin: 10px 0; }
 
-.login-form, .book-form, .author-form { margin-bottom: 1em; }
+.login-form, .book-form, .author-form { margin-bottom: 10px; }
 
-    .login-form label { margin: 0 1em 0 0; color: #404040; }
+    .login-form label { margin: 0 10px 0 0; color: #404040; }
     .login-form input { width: 48%; }
     
-    .book-form, .author-form { border-width:0.1em; border-style:solid; border-color:#262729 #171717 #171717 #262729; -webkit-border-radius:0.3em; padding: 1em; background: #1d1e1f; }
+    .book-form, .author-form { border-width: 1px; border-style: solid; border-color: #262729 #171717 #171717 #262729; -webkit-border-radius: 3px; padding: 10px; background: #1d1e1f; }
     
-    .book-form .section, .author-form .section { margin: 0 0 1em 0; }
+    .book-form .section, .author-form .section { margin: 0 0 10px 0; }
     select.datetime { display: inline; }
 
 /* Form errors
 ------------------------------*/
-.errors { margin: 0 0 1em 0; }
+.errors { margin: 0 0 10px 0; }
 .errors h2 { font-size: 14px; color: #af290f; }
 .errors ul {}
     .errors li {}
@@ -134,7 +133,7 @@ label, select.block, textarea, input.text { width: 95%;}
 /* Nav
 ------------------------------*/
 ul#nav { list-style: none; }
-    ul#nav li { display: inline; margin: 0 1.5em 0 0; }
+    ul#nav li { display: inline; margin: 0 15px 0 0; }
         ul#nav li a { color: #303b40; }
         ul#nav li a.current { color: #293033; }
         ul#nav li a:hover, ul#nav li a.current:hover { color: #fff; }
