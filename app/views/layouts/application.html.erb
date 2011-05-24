@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title><%= @title || sitetitle %></title>
     
-    <%= stylesheet_link_tag "style", :media => "screen,projection" %>
+    <%= stylesheet_link_tag "application", :media => "screen,projection" %>
     <%= auto_discovery_link_tag(:atom, {:controller => "books", :format => "atom"}, {:title => "Atom feed"}) %>
     <%= csrf_meta_tag %>
     
