@@ -10,6 +10,14 @@ class AuthorsController < ApplicationController
   def index
     @title   = "Authors"
     @authors = Author.list_authors(params[:page], 20)
+    
+    unless admin? || has_flash?
+      last_modified = @authors.map {|a| a.updated_at }.sort.last
+      
+      fresh_when :etag => @authors,
+                 :last_modified => last_modified,
+                 :public => true
+    end
   end
   
   def show
