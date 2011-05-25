@@ -13,6 +13,14 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.list_books(params[:page], 10)
+    
+    unless admin? || @books.empty? || has_flash?
+      last_updated = @books.sort {|a, b| a.updated_at <=> b.updated_at }.last
+      
+      fresh_when :etag => @books,
+                 :last_modified => last_updated.updated_at.utc,
+                 :public => true
+    end
   end
   
   def covers
@@ -24,6 +32,12 @@ class BooksController < ApplicationController
     @book  = Book.find_by_permalink(params[:id])
     maybe_raise_404(@book)
     @title = @book.title
+    
+    unless admin? || has_flash?
+      fresh_when :etag => @book,
+                 :last_modified => @book.updated_at.utc,
+                 :public => true
+    end
   end
   
   def new
