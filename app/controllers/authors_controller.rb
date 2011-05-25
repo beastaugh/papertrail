@@ -67,7 +67,7 @@ class AuthorsController < ApplicationController
   
   def redirect_if_not_found
     logger.error("Attempt to access invalid author #{params[:id]}")
-    flash[:alert] = "Sorry, the system couldn&#8217;t find what you were looking for."
+    flash[:alert] = "Sorry, the system couldn&#8217;t find what you were looking for.".html_safe
     redirect_to authors_path
   end
 end

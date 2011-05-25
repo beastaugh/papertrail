@@ -83,7 +83,7 @@ class BooksController < ApplicationController
   
   def redirect_if_not_found
     logger.error("Attempt to access invalid book #{params[:id]}")
-    flash[:alert] = "Sorry, the system couldn&#8217;t find what you were looking for."
+    flash[:alert] = "Sorry, the system couldn&#8217;t find what you were looking for.".html_safe
     redirect_to root_path
   end
 end
