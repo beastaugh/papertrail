@@ -35,8 +35,9 @@ var Editable = function(wrapper, config) {
   this.edit = function() {
     var self = this;
     jQuery.get(this.link.href, {}, function(response) {
-      self.form.html(response);
-      self.form.children('.book-form').prepend('<p class="cancel button">Cancel</p>');
+      var formContent = jQuery(response);
+      formContent.children('form.edit_form').prepend('<p class="cancel button">Cancel</p>');
+      self.form.html(formContent);
       self.links.fadeOut();
       self.transition(self.form.height(), function() {
         this.view.hide();
