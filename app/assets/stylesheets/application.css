@@ -46,7 +46,7 @@ a:hover { color: #d93600; text-decoration: underline; }
 /* Entries
 ------------------------------*/
 .book h1, .book h2.title, .author h1, .author h2.title { margin: 0; }
-.book { margin-bottom: 25px; }
+.book { padding-bottom: 15px; }
 .author .content { margin-bottom: 15px; }
 
     .book .subtitle {margin:0; font-size: 18px; font-style: italic; color:#999;}
