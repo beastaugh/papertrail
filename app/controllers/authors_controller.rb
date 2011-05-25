@@ -16,6 +16,15 @@ class AuthorsController < ApplicationController
     @author = Author.find_by_permalink(params[:id])
     maybe_raise_404(@author)
     @title  = @author.name
+    
+    unless admin? || has_flash?
+      books_updated = @author.books.to_a.map {|b| b.updated_at }
+      last_modified = books_updated.push(@author.updated_at).sort.last
+      
+      fresh_when :etag => @author,
+                 :last_modified => last_modified,
+                 :public => true
+    end
   end
   
   def new
